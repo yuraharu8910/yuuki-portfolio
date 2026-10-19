@@ -264,16 +264,27 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   /* No-JS navigation remains accessible without requiring a menu script. */
   .header:not(.nav-ready) { height: auto; min-height: 60px; flex-wrap: wrap; padding-block: 8px; }
   .header:not(.nav-ready) nav { flex-wrap: wrap; gap: 8px; }
-  .hero { height: auto; min-height: 0; padding-bottom: 62px; display: flex; flex-direction: column; }
-  .hero-copy { position: relative; left: auto; top: auto; transform: none; width: auto; margin-inline: var(--gutter); padding-top: 30px; order: 0; }
+  /* スマホ：FVを「画面の高さ − ヘッダー」に収め、コピーの下の残りの高さを動画に使う */
+  .hero { height: calc(100svh - var(--header-height)); min-height: 560px; display: flex; flex-direction: column; }
+  .hero-copy { position: relative; left: auto; top: auto; transform: none; width: auto; margin-inline: var(--gutter); padding-top: 24px; order: 0; flex: none; }
   .hero-copy .eyebrow { margin-bottom: 14px; }
   .hero-copy h1 { font-size: clamp(29px, 8.2vw, 48px); line-height: 1.5; letter-spacing: .02em; margin-bottom: 18px; }
   .hero-description { font-size: 13px; line-height: 1.95; margin-bottom: 14px; }
   .hero-actions { gap: 26px; }
   .hero-actions .text-link { font-size: 14px; }
-  /* Only the video's empty top space sits behind the copy; no cropping. */
-  .hero-media { position: relative; inset: auto; width: 100%; aspect-ratio: 9 / 16; margin-top: -24vw; order: 1; z-index: -1; }
-  .hero video { aspect-ratio: 9 / 16; }
+  /* 動画エリア：コピーの下の残りの高さすべて */
+  .hero-media { position: relative; inset: auto; width: 100%; flex: 1; min-height: 0; order: 1; z-index: -1; overflow: hidden; }
+  /* 動画（9:16）のうち、木と人物がいる範囲（上から約19〜87%）がエリアにぴったり入る大きさにする。
+     画面が短いスマホでは動画を小さく、長いスマホでは横幅いっぱいまで大きくなる */
+  .hero video {
+    position: absolute; left: 50%; top: 0;
+    width: auto; height: min(calc(100% / 0.68), calc(100vw * 16 / 9));
+    aspect-ratio: 9 / 16; object-fit: contain;
+    transform: translate(-50%, -19%);
+    /* 動画の背景色とページの色のわずかな差で四角い縁が見えないよう、左右の端をぼかす */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
   .movie-caption { inset-inline: var(--gutter); bottom: 12px; }
   .section-head { display: block; margin-bottom: 32px; }
   .section-head .muted { margin-top: 22px; }
