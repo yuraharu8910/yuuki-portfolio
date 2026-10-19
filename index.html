@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#203f31">
+    <meta name="description" content="YuukiのWeb・LP・Reels制作ポートフォリオ。想いを育て、実りにつなぐ。">
+    <title>想いを育て、実りにつなぐ。 | Yuuki</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:title" content="想いを育て、実りにつなぐ。 | Yuuki">
+    <meta property="og:description" content="YuukiのWeb・LP・Reels制作ポートフォリオ。想いを育て、実りにつなぐ。">
+    <!-- Before publication: set canonical / og:url and the approved 1200 x 630 og:image using the final public origin. -->
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    <header class="header">
+      <a class="brand" href="#home" aria-label="Yuuki トップ">yuuki</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden>MENU</button>
+      <nav aria-label="メインナビゲーション" id="main-navigation">
+        <a href="#works">Works</a>
+        <a href="#service">Service</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-contact">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <!-- ========================= HOME ========================= -->
+      <section id="home" class="hero" aria-labelledby="hero-title">
+        <div class="hero-media">
+          <video id="growth" muted autoplay playsinline preload="metadata" poster="assets/hero/pc-poster.webp" data-pc="assets/hero/pc-fv.mp4" data-sp="assets/hero/sp-fv.mp4" data-poster-pc="assets/hero/pc-poster.webp" data-poster-sp="assets/hero/sp-poster.webp" aria-label="PC作業とともにリンゴの木が育ち、実る映像" width="1280" height="720">
+            <source src="assets/hero/sp-fv.mp4" media="(max-width: 760px)" type="video/mp4">
+            <source src="assets/hero/pc-fv.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">YUUKI / WEB DESIGNER</p>
+          <h1 id="hero-title">
+            <span class="phrase">想いを育て、</span>
+            <span class="phrase">
+              <span class="fruit">実り</span>につなぐ。</span>
+          </h1>
+          <p class="hero-description">
+            <span>あなたらしさを、伝わるかたちに。</span>
+            <span>Web・LP・Reelsをつなぎ、</span>
+            <span>届いた先の行動まで設計します。</span>
+          </p>
+          <div class="hero-actions">
+            <a class="text-link" href="#works">制作実績を見る <span aria-hidden="true">→</span>
+            </a>
+            <a class="quiet-link" href="#contact">相談する</a>
+          </div>
+        </div>
+        <div class="movie-caption">
+          <a class="scroll-cue" href="#how">SCROLL TO GROW ↓</a>
+          <button class="button-secondary" id="play" type="button" aria-controls="growth">映像を再生</button>
+        </div>
+        <p id="video-status" class="video-status" role="status"></p>
+        <noscript>
+          <p class="notice">動画の操作にはJavaScriptを有効にしてください。</p>
+        </noscript>
+      </section>
+      <!-- ========================= HOW ========================= -->
+      <section id="how" class="how wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / HOW I WORK</p>
+            <h2>
+              <span class="phrase">想いが、形になり、</span>
+              <span class="phrase">育っていくまで。</span>
+            </h2>
+          </div>
+          <p class="muted">静かに育ち、最後に実る。<br>一つひとつの工程を、丁寧に。</p>
+        </div>
+        <div class="growth-layout">
+          <div class="growth-art" aria-hidden="true">
+            <!-- りんごの木：成長順の8枚を同じ位置に重ね、app.js がスクロール量に応じて透明度を切り替える。
+                 上から 0=種 / 1=芽 / 2=若木 / 3=若い木 / 4=葉が茂る / 5=実がふくらむ / 6=色づく / 7=赤い実 -->
+            <div class="tree-stack" id="tree-stack">
+              <img class="tree-frame" src="assets/how/tree-01.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-02.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-03.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-04.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-05.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-06.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-07.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-08.webp" alt="" width="900" height="720" decoding="async">
+            </div>
+          </div>
+          <ol class="growth-steps">
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">01 HEAR</p>
+                <h3>想いを聞く</h3>
+                <p>まずは、サービスへの想いや、<br>「誰に、何を届けたいのか」を丁寧に伺います。</p>
+                <p class="step-tags">Interview / Hearing Sheet</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">02 RESEARCH</p>
+                <h3>知る・見つける</h3>
+                <p>ターゲットや競合を調べ、<br>サービスならではの魅力や課題を整理します。</p>
+                <p class="step-tags">Target / Persona / Competitor Research</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">03 DESIGN</p>
+                <h3>伝わる形を考える</h3>
+                <p>リサーチをもとに情報を整理し、<br>デザイン・コンテンツ・導線を設計します。</p>
+                <p class="step-tags">Structure / Wireframe / Visual</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">04 CREATE</p>
+                <h3>形にする</h3>
+                <p>設計した内容をもとに、<br>Webサイト・LP・Reelsなど、<br>目的に合った形へ落とし込みます。</p>
+                <p class="step-tags">Web / LP / Reels</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow fruit">05 GROW</p>
+                <h3>育てる</h3>
+                <p>公開して終わりではなく、<br>反応やデータを見ながら改善し、<br>より届く形へ育てていきます。</p>
+                <p class="step-tags">Analyze / Improve</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <p class="growth-end">想いを育て、<span>実り</span>につなぐ。</p>
+      </section>
+      <!-- ========================= WORKS ========================= -->
+      <section id="works" class="works wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / SELECTED WORKS</p>
+            <h2>育ててきた、かたち。</h2>
+          </div>
+          <p class="muted">制作実績・依頼制作・プロジェクト</p>
+        </div>
+        <!-- 作品カード：画像は data-rotate の中の .slide を app.js が切り替える。
+             作品ごとに PC（静止画）/ Smartphone（静止画）/ Reels（動画）を、ある分だけ並べる。
+             素材の置き場所：assets/works/作品フォルダ/card-pc.webp・card-sp.webp・card-reel.mp4（表紙 card-reel.webp） -->
+        <div class="work-grid">
+          <article class="work featured">
+            <div class="visual" data-rotate>
+              <a class="visual-link" href="works/laviebelle.html" aria-label="La vie belle.mf のケーススタディを見る" tabindex="-1">
+                <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/laviebelle/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
+                <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/laviebelle/card-sp.webp" alt="" width="480" height="1039" loading="lazy" decoding="async"></div></figure>
+                <figure class="slide slide--phone" data-label="Reels"><div class="phone"><video src="assets/works/laviebelle/card-reel.mp4" poster="assets/works/laviebelle/card-reel.webp" muted playsinline preload="none" width="540" height="960"></video></div></figure>
+              </a>
+            </div>
+            <a class="work-content" href="works/laviebelle.html">
+              <p class="eyebrow">01 / CLIENT WORK</p>
+              <p class="case-tag">MAIN CASE STUDY</p>
+              <h3>La vie belle.mf</h3>
+              <p class="meta">Web / LP / Chatbot</p>
+              <p class="desc">サロンの想いと施術の魅力を整理したLPに、予約前の疑問にその場で答えるAIチャットボットを組み込みました。</p>
+              <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+          <article class="work">
+            <div class="visual" data-rotate>
+              <a class="visual-link" href="works/su.html" aria-label="素 -SU- のケーススタディを見る" tabindex="-1">
+                <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/su/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
+                <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/su/card-sp.webp" alt="" width="480" height="1039" loading="lazy" decoding="async"></div></figure>
+              </a>
+            </div>
+            <a class="work-content" href="works/su.html">
+              <p class="eyebrow">02 / COMMISSIONED WORK</p>
+              <h3>素 -SU-</h3>
+              <p class="meta">Landing Page</p>
+              <p class="desc">「隠す」から「活かす」へ。リサーチからブランドの立ち位置を設計したヘアケアLP。</p>
+              <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+          <article class="work">
+            <div class="visual" data-rotate>
+              <a class="visual-link" href="works/lumea-shift.html" aria-label="LUMEA SHIFT のケーススタディを見る" tabindex="-1">
+                <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/lumea-shift/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
+                <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/lumea-shift/card-sp.webp" alt="" width="480" height="1040" loading="lazy" decoding="async"></div></figure>
+                <figure class="slide slide--phone" data-label="Reels"><div class="phone"><video src="assets/works/lumea-shift/card-reel.mp4" poster="assets/works/lumea-shift/card-reel.webp" muted playsinline preload="none" width="540" height="960"></video></div></figure>
+              </a>
+            </div>
+            <a class="work-content" href="works/lumea-shift.html">
+              <p class="eyebrow">03 / PROJECT</p>
+              <h3>LUMEA SHIFT</h3>
+              <p class="meta">LP / Reels</p>
+              <p class="desc">「完璧じゃなくていい」を軸に、LPとReelsをひとつの世界観で設計した自主制作。</p>
+              <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+          <article class="work">
+            <div class="visual" data-rotate>
+              <a class="visual-link" href="works/tomachi.html" aria-label="とおまち夏花火ナイト のケーススタディを見る" tabindex="-1">
+                <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/tomachi/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
+                <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/tomachi/card-sp.webp" alt="" width="480" height="1039" loading="lazy" decoding="async"></div></figure>
+                <figure class="slide slide--phone" data-label="Reels"><div class="phone"><video src="assets/works/tomachi/card-reel.mp4" poster="assets/works/tomachi/card-reel.webp" muted playsinline preload="none" width="540" height="960"></video></div></figure>
+              </a>
+            </div>
+            <a class="work-content" href="works/tomachi.html">
+              <p class="eyebrow">04 / PROJECT</p>
+              <h3>とおまち夏花火ナイト</h3>
+              <p class="meta">LP / Reels / Chatbot</p>
+              <p class="desc">イベントの魅力を楽しく伝え、LP・Reel・Chatbotへ展開したWebプロジェクト。</p>
+              <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+          <article class="work">
+            <div class="visual" data-rotate>
+              <a class="visual-link" href="works/yuge.html" aria-label="YUGE のケーススタディを見る" tabindex="-1">
+                <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/yuge/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
+                <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/yuge/card-sp.webp" alt="" width="480" height="1039" loading="lazy" decoding="async"></div></figure>
+              </a>
+            </div>
+            <a class="work-content" href="works/yuge.html">
+              <p class="eyebrow">05 / PROJECT</p>
+              <h3>YUGE</h3>
+              <p class="meta">Landing Page</p>
+              <p class="desc">サウナの空気感をビジュアルと言葉で伝える、世界観を大切に設計したランディングページ。</p>
+              <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+        </div>
+      </section>
+      <!-- ========================= SERVICE ========================= -->
+      <section id="service" class="service section">
+        <div class="wrap">
+          <p class="eyebrow">04 / SERVICE</p>
+          <h2>
+            <span class="phrase">想いを、</span>
+            <span class="phrase">届くだけで終わらせない。</span>
+            <span class="phrase">行動につながるかたちへ。</span>
+          </h2>
+          <div class="services">
+            <article>
+              <p class="eyebrow">01 / WEB・LP</p>
+              <h3>Webサイト・LP制作</h3>
+              <p class="service-lead">想いと魅力を整理し、<br>次の行動につながるWebサイトへ。</p>
+              <p>サービスの魅力や届けたい相手を整理し、情報設計からデザイン、実装まで一貫して制作します。</p>
+              <ul class="service-tags">
+                <li>Planning</li>
+                <li>Research</li>
+                <li>Information Design</li>
+                <li>Web Design</li>
+                <li>Coding</li>
+                <li>Responsive</li>
+              </ul>
+            </article>
+            <article>
+              <p class="eyebrow">02 / REELS・VIDEO</p>
+              <h3>リール・動画制作</h3>
+              <p class="service-lead">LPへつなぐ、<br>最初のきっかけをつくる。</p>
+              <p>短い時間の中で魅力が伝わる構成を考え、WebやLPへの入口となる動画を制作します。</p>
+              <ul class="service-tags">
+                <li>Planning</li>
+                <li>Direction</li>
+                <li>Editing</li>
+                <li>AI Visual Creation</li>
+                <li>Thumbnail</li>
+                <li>CTA Design</li>
+              </ul>
+              <figure class="service-reel">
+                <video poster="assets/works/tomachi/card-reel.webp" class="case-video" controls playsinline preload="none" width="540" height="960" aria-label="とおまち夏花火ナイトのリール">
+                  <source src="assets/works/tomachi/reel.mp4" type="video/mp4">
+                </video>
+                <figcaption>とおまち夏花火ナイト / Reels<br>再生すると音声が流れます。</figcaption>
+              </figure>
+            </article>
+          </div>
+          <ol class="flow" aria-label="制作と改善の流れ">
+            <li>
+              <strong>REELS</strong>
+              <span>知ってもらう</span>
+            </li>
+            <li>
+              <strong>WEB / LP</strong>
+              <span>魅力を伝える</span>
+            </li>
+            <li>
+              <strong>CTA</strong>
+              <span>行動につなげる</span>
+            </li>
+            <li>
+              <strong>ANALYZE</strong>
+              <span>反応を見る</span>
+            </li>
+            <li>
+              <strong>IMPROVE</strong>
+              <span>育てる</span>
+            </li>
+          </ol>
+          <div class="grow-message">
+            <p class="eyebrow fruit">GROW</p>
+            <h3>作って終わりではなく、<br>届き方を見ながら育てていく。</h3>
+            <p>公開後の反応やデータを確認し、必要に応じて導線やコンテンツを見直します。</p>
+            <p class="step-tags">Analyze / Measure / Improve</p>
+          </div>
+        </div>
+      </section>
+      <!-- ========================= ABOUT ========================= -->
+      <section id="about" class="about wrap section">
+        <div class="about-heading">
+          <p class="eyebrow">05 / ABOUT</p>
+          <h2>
+            <span class="phrase">想いの先まで、</span>
+            <span class="phrase">一緒に考える。</span>
+          </h2>
+        </div>
+        <div class="about-art">
+          <img src="assets/about/tree.jpg" alt="リンゴの木の下でPC作業をするYuukiのアバター" loading="lazy" width="1280" height="720" decoding="async">
+          <p class="eyebrow">GROW AT YOUR OWN PACE.</p>
+        </div>
+        <div class="about-copy">
+          <h3>YUUKI <span class="meta">WEB DESIGNER</span>
+          </h3>
+          <p>WebサイトやLPを中心に、<br>リール・動画までつなげた制作をしています。</p>
+          <p>大切にしているのは、<br>ただ「きれいなもの」を作ることではありません。</p>
+          <p>どんな想いがあるのか。<br>誰に届けたいのか。<br>その人にどう伝われば、<br>次の行動につながるのか。</p>
+          <p>一つひとつ整理しながら、<br>そのサービスらしい伝え方を考えます。</p>
+          <p>そして、公開して終わりではなく、<br>その後の反応を見ながら改善し、<br>少しずつ育てていく。</p>
+          <p>そんな制作を目指しています。</p>
+          <dl class="profile">
+            <dt>BASED IN</dt>
+            <dd>Sapporo, Hokkaido</dd>
+            <dt>FOCUS</dt>
+            <dd>Web Design / Landing Page / Reels</dd>
+            <dt>SKILLS</dt>
+            <dd>Design / Coding / Video / Generative AI</dd>
+          </dl>
+        </div>
+      </section>
+      <!-- ========================= CONTACT ========================= -->
+      <section id="contact" class="contact section">
+        <div class="wrap contact-grid">
+          <div>
+            <p class="eyebrow">06 / CONTACT</p>
+            <h2>
+              <span class="phrase">一緒に、</span>
+              <span class="phrase">育てていきませんか。</span>
+            </h2>
+            <p>WebサイトやLPの制作、<br>リールからLPへつなぐ導線づくりなど、<br>まずはお気軽にご相談ください。</p>
+            <p>まだ内容が決まっていない段階でも、<br>「何を作ればいいかわからない」<br>というところから一緒に整理します。</p>
+          </div>
+          <div>
+            <p class="form-notice" id="contact-notice">現在フォームでの受付を休止しています。入力内容は送信されません。</p>
+            <form id="contact-form" data-endpoint="" aria-describedby="contact-notice">
+              <!-- 送信先未設定。外部サービス接続時は action / method と app.js の送信処理を実装する。 -->
+              <label for="name">NAME <span aria-hidden="true">*</span>
+              </label>
+              <input id="name" name="name" autocomplete="name" required maxlength="100">
+              <label for="email">EMAIL <span aria-hidden="true">*</span>
+              </label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
+              <fieldset class="project-options">
+                <legend>PROJECT <span aria-hidden="true">*</span>
+                </legend>
+                <div class="project-grid">
+                  <label class="project-option" for="project-0">
+                    <input id="project-0" type="radio" name="project" value="Webサイト / LP制作" required>
+                    <span>Webサイト / LP制作</span>
+                  </label>
+                  <label class="project-option" for="project-1">
+                    <input id="project-1" type="radio" name="project" value="Reels / 動画制作" required>
+                    <span>Reels / 動画制作</span>
+                  </label>
+                  <label class="project-option" for="project-2">
+                    <input id="project-2" type="radio" name="project" value="Web / LP ＋ Reels" required>
+                    <span>Web / LP ＋ Reels</span>
+                  </label>
+                  <label class="project-option" for="project-3">
+                    <input id="project-3" type="radio" name="project" value="その他" required>
+                    <span>その他</span>
+                  </label>
+                </div>
+              </fieldset>
+              <label for="message">MESSAGE <span aria-hidden="true">*</span>
+              </label>
+              <textarea id="message" name="message" rows="6" required maxlength="5000"></textarea>
+              <button class="cta" id="contact-submit" type="button" disabled>相談内容を送信する →</button>
+              <p id="form-status" role="status" aria-live="polite"></p>
+              <template id="contact-success">
+                <h3>送信ありがとうございました。</h3>
+                <p>内容を確認のうえ、<br>ご入力いただいたメールアドレスへご連絡します。</p>
+              </template>
+              <template id="contact-error">
+                <h3>送信できませんでした。</h3>
+                <p>お手数ですが、<br>時間をおいてもう一度お試しください。</p>
+              </template>
+              <div id="contact-result" hidden role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="wrap">
+      <a class="brand" href="index.html#home">yuuki<span>DESIGN &amp; GROW</span>
+      </a>
+      <span>© 2026 Yuuki</span>
+      <a class="back" href="#main">BACK TO TOP ↑</a>
+    </footer>
+  </body>
+</html>
