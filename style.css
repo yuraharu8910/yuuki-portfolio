@@ -210,22 +210,23 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .contact-grid { display: grid; grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 60px; }
 .contact h2 { font-size: clamp(26px, 2.6vw, 37px); }
 .contact p { max-width: 36em; }
-.form-notice { padding: 14px 18px; border: 1px solid var(--line); font-size: 13px; }
-.contact form { display: grid; gap: 10px; }
-.contact label, .contact legend { font-size: 12px; letter-spacing: .04em; margin-top: 10px; }
-.contact input:not([type='radio']), .contact textarea { display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 48px; padding: 12px; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--ink); }
-textarea { resize: vertical; }
-.project-options { min-width: 0; margin: 10px 0; padding: 0; border: 0; }
-.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
-.contact .project-option { display: flex; align-items: center; gap: 8px; padding: 12px; min-height: 54px; border: 1px solid var(--line); margin: 0; cursor: pointer; }
-.project-option:has(input:checked) { background: var(--paper); color: var(--ink); }
-.project-option input { accent-color: var(--ink); width: 18px; height: 18px; flex-shrink: 0; margin: 0; }
-.project-option input:focus-visible { outline-color: var(--red); }
-.contact .cta { margin-top: 15px; background: var(--paper); color: var(--ink); border-color: var(--paper); }
-.contact :focus-visible { outline-color: var(--paper); }
-#form-status { font-size: 13px; margin: 5px 0 0; }
-#contact-result { padding: 24px; border: 1px solid var(--line); margin-top: 16px; }
-#contact-result h3 { font-size: 21px; }
+/* 問い合わせ窓口（Instagram DM / LINE）：濃い緑の上に線で囲んだ大きなカード */
+.contact-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.contact-link {
+  position: relative; display: grid; gap: 6px;
+  padding: 26px 64px 26px 28px;                 /* 右側は矢印のスペース */
+  border: 1px solid rgba(250, 248, 242, .35); border-radius: 6px;
+  color: var(--paper); text-decoration: none;
+  transition: background .3s, color .3s, border-color .3s;
+}
+.contact-link__label { font: 11px/1.4 Arial, sans-serif; letter-spacing: .14em; opacity: .75; }
+.contact-link__title { font-family: var(--font-display); font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; }
+.contact-link__note { font-size: 13px; opacity: .8; }
+.contact-link__arrow { position: absolute; right: 26px; top: 50%; font-size: 20px; transform: translateY(-50%); transition: transform .25s; }
+/* マウスを乗せたら（PC）：オフホワイトに反転し、矢印が少し右へ */
+.contact-link:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.contact-link:hover .contact-link__arrow { transform: translate(4px, -50%); }
+.contact-small { margin-top: 18px; font-size: 13px; opacity: .8; }
 /* =========================
    CASE STUDIES / FOOTER
 ========================= */

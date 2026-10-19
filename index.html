@@ -344,52 +344,28 @@
             <p>まだ内容が決まっていない段階でも、<br>「何を作ればいいかわからない」<br>というところから一緒に整理します。</p>
           </div>
           <div>
-            <p class="form-notice" id="contact-notice">現在フォームでの受付を休止しています。入力内容は送信されません。</p>
-            <form id="contact-form" data-endpoint="" aria-describedby="contact-notice">
-              <!-- 送信先未設定。外部サービス接続時は action / method と app.js の送信処理を実装する。 -->
-              <label for="name">NAME <span aria-hidden="true">*</span>
-              </label>
-              <input id="name" name="name" autocomplete="name" required maxlength="100">
-              <label for="email">EMAIL <span aria-hidden="true">*</span>
-              </label>
-              <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
-              <fieldset class="project-options">
-                <legend>PROJECT <span aria-hidden="true">*</span>
-                </legend>
-                <div class="project-grid">
-                  <label class="project-option" for="project-0">
-                    <input id="project-0" type="radio" name="project" value="Webサイト / LP制作" required>
-                    <span>Webサイト / LP制作</span>
-                  </label>
-                  <label class="project-option" for="project-1">
-                    <input id="project-1" type="radio" name="project" value="Reels / 動画制作" required>
-                    <span>Reels / 動画制作</span>
-                  </label>
-                  <label class="project-option" for="project-2">
-                    <input id="project-2" type="radio" name="project" value="Web / LP ＋ Reels" required>
-                    <span>Web / LP ＋ Reels</span>
-                  </label>
-                  <label class="project-option" for="project-3">
-                    <input id="project-3" type="radio" name="project" value="その他" required>
-                    <span>その他</span>
-                  </label>
-                </div>
-              </fieldset>
-              <label for="message">MESSAGE <span aria-hidden="true">*</span>
-              </label>
-              <textarea id="message" name="message" rows="6" required maxlength="5000"></textarea>
-              <button class="cta" id="contact-submit" type="button" disabled>相談内容を送信する →</button>
-              <p id="form-status" role="status" aria-live="polite"></p>
-              <template id="contact-success">
-                <h3>送信ありがとうございました。</h3>
-                <p>内容を確認のうえ、<br>ご入力いただいたメールアドレスへご連絡します。</p>
-              </template>
-              <template id="contact-error">
-                <h3>送信できませんでした。</h3>
-                <p>お手数ですが、<br>時間をおいてもう一度お試しください。</p>
-              </template>
-              <div id="contact-result" hidden role="status" aria-live="polite"></div>
-            </form>
+            <!-- 問い合わせ窓口：Instagram DM と LINE -->
+            <ul class="contact-links">
+              <li>
+                <!-- ig.me/m/ユーザー名 … タップするとInstagramアプリのDM画面が直接開く -->
+                <a class="contact-link" href="https://ig.me/m/yuki.hy_design">
+                  <span class="contact-link__label">INSTAGRAM DM</span>
+                  <span class="contact-link__title">InstagramのDMで相談する</span>
+                  <span class="contact-link__note">@yuki.hy_design ／ 制作実績も投稿しています</span>
+                  <span class="contact-link__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li>
+                <!-- LINE公式アカウントの友だち追加URL -->
+                <a class="contact-link" href="https://lin.ee/yv5foaZM">
+                  <span class="contact-link__label">LINE</span>
+                  <span class="contact-link__title">LINEで相談する</span>
+                  <span class="contact-link__note">友だち追加後、メッセージをお送りください</span>
+                  <span class="contact-link__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            </ul>
+            <p class="contact-small">メッセージを確認のうえ、順次お返事します。</p>
           </div>
         </div>
       </section>
