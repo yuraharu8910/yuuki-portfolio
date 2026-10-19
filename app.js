@@ -3,55 +3,64 @@
    HERO — portable media controls
 ========================= */
 const video = document.getElementById('growth');
-const playButton = document.getElementById('play');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (video && playButton) {
-  const mobile = window.matchMedia('(max-width: 760px)');
-  const status = document.getElementById('video-status');
-  let selection = '';
-  function label() {
-    playButton.textContent = video.ended ? '↻ もう一度見る' : video.paused ? '▶ 再生' : 'Ⅱ 一時停止';
-    playButton.setAttribute('aria-label', video.ended ? '映像をもう一度再生' : video.paused ? '映像を再生' : '映像を一時停止');
+if (video) {
+  const hero = document.getElementById('home');                 // FVのセクション
+  const mobile = window.matchMedia('(max-width: 760px)');       // スマホ判定（CSSと同じ760px）
+  const status = document.getElementById('video-status');       // 読み込み失敗時のメッセージ欄
+  let selection = '';      // いま読み込んでいる動画（'sp' or 'pc'）
+  let heroVisible = true;  // FVが画面に見えているか
+  let leftHero = false;    // 一度FVの外へ出たか（戻ってきたら最初から再生するため）
+
+  // 動画を「最初から」再生する（動きを減らす設定の人には再生しない）
+  function restart() {
+    if (reducedMotion.matches) return;
+    try { video.currentTime = 0; } catch (err) {}
+    video.play().catch(() => {});   // 自動再生できない環境では表紙画像のまま
   }
-  function start() { video.play().catch(() => { label(); }); }
+
+  // 画面幅に合わせて スマホ用 / PC用 の動画を選ぶ
   function selectVideo() {
     const key = mobile.matches ? 'sp' : 'pc';
     if (selection === key) return;
-    const wasEnded = video.ended;
-    const wasPlaying = !video.paused;
-    const progress = Number.isFinite(video.duration) && video.duration > 0 ? video.currentTime / video.duration : 0;
-    const first = !selection;
     selection = key;
     video.pause();
-    video.muted = true;
+    video.muted = true;          // 自動再生はミュートが条件
     video.defaultMuted = true;
-    video.loop = false;
-    video.autoplay = !reducedMotion.matches && (first || wasPlaying) && !wasEnded;
+    video.loop = false;          // 1回再生して最後のコマで止める
     video.poster = video.dataset[key === 'sp' ? 'posterSp' : 'posterPc'];
     video.src = video.dataset[key];
     status.textContent = '';
-    video.onloadedmetadata = () => {
-      if (wasEnded) {
-        video.currentTime = Math.max(0, video.duration - 0.04);
-        video.pause();
-        playButton.textContent = '↻ もう一度見る';
-      } else {
-        if (progress > 0) video.currentTime = Math.min(video.duration - 0.04, progress * video.duration);
-        if (!reducedMotion.matches && (first || wasPlaying)) start();
-        else label();
-      }
-    };
+    video.onloadedmetadata = () => { if (heroVisible) restart(); };
     video.load();
   }
-  playButton.addEventListener('click', () => {
-    if (video.paused || video.ended) {
-      if (video.ended || (Number.isFinite(video.duration) && video.currentTime >= video.duration - 0.05)) video.currentTime = 0;
-      start();
-    } else video.pause();
+
+  // ① スクロールでFVから出たら一時停止 → 戻ってきたら最初から再生
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      if (!heroVisible) {
+        leftHero = true;
+        video.pause();
+      } else if (leftHero) {
+        leftHero = false;
+        restart();
+      }
+    }, { threshold: 0.35 }).observe(hero);   // FVが35%以上見えたら「戻ってきた」と判断
+  }
+
+  // ② 別ページ（作品ページなど）から「戻る」で帰ってきたときも最初から再生
+  //    （ブラウザがページを保存していた場合、自動再生が走らないため）
+  window.addEventListener('pageshow', event => { if (event.persisted && heroVisible) restart(); });
+
+  // ③ 別のアプリやタブから戻ってきたときも、FVが見えていれば最初から再生
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) video.pause();
+    else if (heroVisible) restart();
   });
-  // ended never resets src/currentTime: final decoded frame stays visible.
-  ['play', 'pause', 'ended'].forEach(event => video.addEventListener(event, label));
-  video.addEventListener('error', () => { status.textContent = '映像を読み込めませんでした。通信環境をご確認ください。'; label(); });
+
+  // 再生が終わっても映像は最後のコマで止まったまま（ボタンは置かない）
+  video.addEventListener('error', () => { status.textContent = '映像を読み込めませんでした。通信環境をご確認ください。'; });
   mobile.addEventListener('change', selectVideo);
   reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) video.pause(); });
   selectVideo();
