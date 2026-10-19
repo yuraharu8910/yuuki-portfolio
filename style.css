@@ -168,7 +168,8 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 ========================= */
 .service { background: var(--soft); }
 .services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 60px; margin-top: 52px; }
-.services article { border-top: 1px solid var(--line); padding-top: 26px; }
+/* 01 WEB・LP / 02 REELS・VIDEO：薄いグリーンの上にオフホワイトのカードとして置く */
+.services article { background: var(--paper); border-radius: 6px; padding: clamp(26px, 3.4vw, 44px) clamp(22px, 3vw, 40px); }
 .services h3 { font-size: 26px; }
 .service-lead { font-size: 20px; line-height: 1.8; }
 .service-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; border-top: 1px solid var(--line); padding: 20px 0 0; font: 12px/1.8 Arial, sans-serif; }
@@ -185,6 +186,7 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .flow li:last-child strong { color: var(--red); }
 .grow-message { text-align: center; padding-top: 28px; }
 .grow-message > p { max-width: 42em; margin-inline: auto; }
+.grow-message h3 { font-family: var(--font-display); letter-spacing: .035em; } /* ABOUTの見出しと同じ明朝体に */
 /* =========================
    ABOUT — locked copy / existing avatar
 ========================= */
@@ -196,6 +198,8 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .about-copy { grid-column: 2; grid-row: 2; max-width: 38em; }
 .about-copy h3 { font-family: Georgia, serif; }
 .about-copy h3 span { display: block; letter-spacing: .1em; font-family: Arial, sans-serif; }
+/* 名前「yuuki」はヘッダーのロゴと同じ書体・字間（小文字・Georgia・-2px）にそろえる */
+.about-copy h3 .about-name { font: 40px/1 Georgia, serif; letter-spacing: -2px; margin-bottom: 10px; }
 .profile { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 16px; margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--line); font-size: 13px; }
 .profile dt { font: 12px/1.9 Arial, sans-serif; letter-spacing: .04em; }
 .profile dd { margin: 0; }
