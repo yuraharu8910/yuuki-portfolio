@@ -70,8 +70,13 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .hero-copy h1 { font-size: clamp(32px, 3.65vw, 62px); line-height: 1.5; letter-spacing: .025em; margin-bottom: 24px; white-space: normal; }
 .hero-description { font-size: clamp(13px, 1.1vw, 16px); line-height: 1.95; margin-bottom: 22px; }
 .hero-description span { display: block; }
-.hero-actions { display: flex; align-items: center; gap: 26px; }
-.hero-actions .text-link { font-size: 15px; }
+.hero-actions { display: flex; align-items: center; gap: 14px; }
+/* 「制作実績を見る」「相談する」を丸いボタンに（スマホ・PC共通の見た目） */
+.hero-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-width: 176px; min-height: 52px; padding: 0 28px; border: 1px solid var(--ink); border-radius: 999px; font-size: 15px; letter-spacing: .04em; text-decoration: none; white-space: nowrap; transition: background .3s, color .3s, opacity .3s; }
+.hero-actions .text-link { background: var(--ink); color: var(--paper); }      /* 制作実績を見る：塗りつぶし（メイン） */
+.hero-actions .quiet-link { background: var(--paper); color: var(--ink); }     /* 相談する：線だけ（サブ） */
+.hero-actions .text-link:hover { opacity: .85; }                              /* マウスを乗せたら少し明るく */
+.hero-actions .quiet-link:hover { background: var(--ink); color: var(--paper); } /* マウスを乗せたら塗りつぶし */
 .movie-caption { position: absolute; inset: auto var(--gutter) 14px; display: flex; justify-content: space-between; align-items: center; gap: 15px; z-index: 2; }
 .scroll-cue { display: flex; min-height: 44px; align-items: center; font: 12px/1.6 Arial, sans-serif; letter-spacing: .08em; }
 .video-status { position: absolute; bottom: 68px; left: var(--gutter); font-size: 13px; background: var(--paper); }
@@ -238,8 +243,8 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
 @media (max-width: 1050px) and (min-width: 761px) {
   .hero-copy { width: 43%; }
   .hero-copy h1 { font-size: clamp(30px, 3.65vw, 40px); }
-  .hero-actions { gap: 15px; }
-  .hero-actions .text-link { font-size: 13px; }
+  .hero-actions { gap: 12px; }
+  .hero-actions a { min-width: 150px; min-height: 48px; padding: 0 22px; font-size: 13px; }
   .about, .contact-grid { gap: 32px; }
   .services { gap: 32px; }
   .project-grid { grid-template-columns: 1fr; }
@@ -273,9 +278,7 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   .hero-description { order: 0; margin: 0 var(--gutter) 4px; font-size: 13px; line-height: 1.95; }
   /* ボタン2つを横並び・同じ幅で、動画の下に配置 */
   .hero-actions { order: 2; flex: none; display: flex; gap: 12px; margin: 4px var(--gutter) 0; }
-  .hero-actions a { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 12px; border: 1px solid var(--ink); border-radius: 999px; font-size: 14px; letter-spacing: .04em; text-decoration: none; white-space: nowrap; }
-  .hero-actions .text-link { background: var(--ink); color: var(--paper); }      /* 制作実績を見る：塗りつぶし（メイン） */
-  .hero-actions .quiet-link { background: var(--paper); color: var(--ink); }     /* 相談する：線だけ（サブ） */
+  .hero-actions a { flex: 1 1 0; min-width: 0; min-height: 50px; gap: 10px; padding: 0 12px; font-size: 14px; }   /* 1 1 0 … 2つを同じ幅に */
   /* 動画エリア：コピーの下の残りの高さすべて */
   .hero-media { position: relative; inset: auto; width: 100%; flex: 1; min-height: 0; order: 1; z-index: -1; overflow: hidden; }
   /* 動画エリアの下端に、ページの色へなじむグラデーションをかけて境目を消す */
