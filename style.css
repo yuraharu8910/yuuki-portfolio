@@ -173,8 +173,10 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .service-lead { font-size: 20px; line-height: 1.8; }
 .service-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; border-top: 1px solid var(--line); padding: 20px 0 0; font: 12px/1.8 Arial, sans-serif; }
 .service .step-tags, .service figcaption { color: var(--ink); }
-.service-reel { margin: 30px 0 0; }
-.service-reel .case-video { width: 200px; }
+/* 「〇〇実績を見る →」：WORKSへ案内するリンク。左右で同じ位置にそろえる */
+.services article { display: flex; flex-direction: column; }
+.service-tags { margin-bottom: 28px; }                                        /* タグとリンクの間隔 */
+.service-link { align-self: flex-start; margin-top: auto; min-width: 200px; }  /* margin-top: auto … 下端にそろえる */
 .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); list-style: none; padding: 38px 0; margin: 52px 0 28px; border-block: 1px solid var(--line); gap: 24px; }
 .flow li { position: relative; text-align: center; }
 .flow strong { display: block; font: 500 clamp(15px, 1.6vw, 21px)/1.8 Arial, sans-serif; }
