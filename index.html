@@ -344,28 +344,60 @@
             <p>まだ内容が決まっていない段階でも、<br>「何を作ればいいかわからない」<br>というところから一緒に整理します。</p>
           </div>
           <div>
-            <!-- 問い合わせ窓口：Instagram DM と LINE -->
-            <ul class="contact-links">
-              <li>
-                <!-- ig.me/m/ユーザー名 … タップするとInstagramアプリのDM画面が直接開く -->
-                <a class="contact-link" href="https://ig.me/m/yuki.hy_design">
-                  <span class="contact-link__label">INSTAGRAM DM</span>
-                  <span class="contact-link__title">InstagramのDMで相談する</span>
-                  <span class="contact-link__note">@yuki.hy_design ／ 制作実績も投稿しています</span>
-                  <span class="contact-link__arrow" aria-hidden="true">→</span>
-                </a>
-              </li>
-              <li>
-                <!-- LINE公式アカウントの友だち追加URL -->
-                <a class="contact-link" href="https://lin.ee/yv5foaZM">
-                  <span class="contact-link__label">LINE</span>
-                  <span class="contact-link__title">LINEで相談する</span>
-                  <span class="contact-link__note">友だち追加後、メッセージをお送りください</span>
-                  <span class="contact-link__arrow" aria-hidden="true">→</span>
-                </a>
-              </li>
-            </ul>
-            <p class="contact-small">メッセージを確認のうえ、順次お返事します。</p>
+            <!-- 問い合わせフォーム：送信内容は Formspree 経由でメールに届く
+                 data-endpoint に Formspree でもらったURL（https://formspree.io/f/〇〇〇〇）を入れると送信できるようになる -->
+            <form id="contact-form" data-endpoint="https://formspree.io/f/xrpevjbj" novalidate>
+              <!-- メールの件名（Formspree用の隠し項目） -->
+              <input type="hidden" name="_subject" value="【ポートフォリオ】お問い合わせが届きました">
+              <!-- 迷惑メール対策：人には見えない入力欄。ここに入力があるとFormspreeが自動で破棄する -->
+              <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <label for="name">NAME <span aria-hidden="true">*</span></label>
+              <input id="name" name="name" autocomplete="name" required maxlength="100">
+              <label for="email">EMAIL <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
+              <fieldset class="project-options">
+                <legend>PROJECT <span aria-hidden="true">*</span></legend>
+                <div class="project-grid">
+                  <label class="project-option" for="project-0">
+                    <input id="project-0" type="radio" name="project" value="Webサイト / LP制作" required>
+                    <span>Webサイト / LP制作</span>
+                  </label>
+                  <label class="project-option" for="project-1">
+                    <input id="project-1" type="radio" name="project" value="Reels / 動画制作" required>
+                    <span>Reels / 動画制作</span>
+                  </label>
+                  <label class="project-option" for="project-2">
+                    <input id="project-2" type="radio" name="project" value="Web / LP ＋ Reels" required>
+                    <span>Web / LP ＋ Reels</span>
+                  </label>
+                  <label class="project-option" for="project-3">
+                    <input id="project-3" type="radio" name="project" value="その他" required>
+                    <span>その他</span>
+                  </label>
+                </div>
+              </fieldset>
+              <label for="message">MESSAGE <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="6" required maxlength="5000"></textarea>
+              <button class="cta" id="contact-submit" type="submit">相談内容を送信する →</button>
+              <p id="form-status" role="status" aria-live="polite"></p>
+            </form>
+            <!-- 送信完了のメッセージ（送信に成功したらフォームと入れ替えて表示） -->
+            <div id="contact-result" hidden tabindex="-1">
+              <h3>送信ありがとうございました。</h3>
+              <p>内容を確認のうえ、<br>ご入力いただいたメールアドレスへご連絡します。</p>
+            </div>
+            <!-- SNS：アイコンのみ表示（LINEは公式アカウントが整ったら同じ形で追加） -->
+            <div class="contact-sns">
+              <p>Instagramでも制作実績を発信しています。</p>
+              <ul class="sns-list">
+                <li>
+                  <a class="sns-link" href="https://www.instagram.com/yuki.hy_design/" aria-label="Instagram（@yuki.hy_design）">
+                    <!-- 公式アイコン画像（assets/icons/instagram.png）。画像が無いあいだは文字で表示 -->
+                    <img src="assets/icons/instagram.png" alt="" width="28" height="28" onerror="this.replaceWith(document.createTextNode('Instagram'))">
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

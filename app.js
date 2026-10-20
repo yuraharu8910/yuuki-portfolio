@@ -304,3 +304,56 @@ if (growthSection && treeStack) {
   reducedMotion.addEventListener('change', () => rotators.forEach(state => { show(state, state.index); schedule(state); }));
 }
 
+/* =========================
+   CONTACT — フォーム送信（Formspree）
+========================= */
+const form = document.getElementById('contact-form');
+if (form) {
+  const button = document.getElementById('contact-submit');
+  const status = document.getElementById('form-status');
+  const result = document.getElementById('contact-result');
+  const endpoint = form.dataset.endpoint;   // index.html の data-endpoint に入れたFormspreeのURL
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();               // ページ移動せず、この場で送信する
+    status.textContent = '';
+
+    // 名前とメッセージが空白だけの場合もエラーにする
+    for (const key of ['name', 'message']) {
+      const input = form.elements.namedItem(key);
+      input.setCustomValidity(input.value.trim() ? '' : '空白以外の内容を入力してください。');
+    }
+    if (!form.reportValidity()) return;   // 未入力の項目があればブラウザの吹き出しで知らせる
+
+    if (!endpoint) {                       // 送信先がまだ設定されていないとき
+      status.textContent = '現在フォームの準備中です。お手数ですがInstagramのDMからご連絡ください。';
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = '送信中…';
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }  // Formspreeに「結果をJSONで返して」と伝える
+      });
+      if (!response.ok) throw new Error('send failed');
+      // 成功：フォームを隠して完了メッセージを表示
+      form.reset();
+      form.hidden = true;
+      result.hidden = false;
+      result.focus();
+    } catch {
+      status.textContent = '送信できませんでした。時間をおいて再度お試しいただくか、InstagramのDMからご連絡ください。';
+    } finally {
+      button.disabled = false;
+      button.textContent = '相談内容を送信する →';
+    }
+  });
+
+  // 入力し直したら、エラー表示をリセット
+  form.addEventListener('input', event => {
+    if (event.target.setCustomValidity) event.target.setCustomValidity('');
+  });
+}

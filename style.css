@@ -210,23 +210,33 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .contact-grid { display: grid; grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 60px; }
 .contact h2 { font-size: clamp(26px, 2.6vw, 37px); }
 .contact p { max-width: 36em; }
-/* 問い合わせ窓口（Instagram DM / LINE）：濃い緑の上に線で囲んだ大きなカード */
-.contact-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-.contact-link {
-  position: relative; display: grid; gap: 6px;
-  padding: 26px 64px 26px 28px;                 /* 右側は矢印のスペース */
-  border: 1px solid rgba(250, 248, 242, .35); border-radius: 6px;
-  color: var(--paper); text-decoration: none;
-  transition: background .3s, color .3s, border-color .3s;
-}
-.contact-link__label { font: 11px/1.4 Arial, sans-serif; letter-spacing: .14em; opacity: .75; }
-.contact-link__title { font-family: var(--font-display); font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; }
-.contact-link__note { font-size: 13px; opacity: .8; }
-.contact-link__arrow { position: absolute; right: 26px; top: 50%; font-size: 20px; transform: translateY(-50%); transition: transform .25s; }
-/* マウスを乗せたら（PC）：オフホワイトに反転し、矢印が少し右へ */
-.contact-link:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-.contact-link:hover .contact-link__arrow { transform: translate(4px, -50%); }
-.contact-small { margin-top: 18px; font-size: 13px; opacity: .8; }
+/* お問い合わせフォーム */
+.contact form { display: grid; gap: 10px; }
+.contact label, .contact legend { font-size: 12px; letter-spacing: .04em; margin-top: 10px; }
+.contact input:not([type='radio']), .contact textarea { display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 48px; padding: 12px; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--ink); }
+textarea { resize: vertical; }
+.project-options { min-width: 0; margin: 10px 0; padding: 0; border: 0; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+.contact .project-option { display: flex; align-items: center; gap: 8px; padding: 12px; min-height: 54px; border: 1px solid var(--line); margin: 0; cursor: pointer; }
+.project-option:has(input:checked) { background: var(--paper); color: var(--ink); }
+.project-option input { accent-color: var(--ink); width: 18px; height: 18px; flex-shrink: 0; margin: 0; }
+.project-option input:focus-visible { outline-color: var(--red); }
+.contact .cta { margin-top: 15px; background: var(--paper); color: var(--ink); border-color: var(--paper); cursor: pointer; }
+.contact .cta:disabled { opacity: .6; cursor: wait; }
+#form-status { font-size: 13px; margin: 5px 0 0; min-height: 1.5em; }
+#contact-result { padding: 28px; border: 1px solid var(--line); border-radius: 6px; }
+#contact-result h3 { font-size: 21px; font-family: var(--font-display); }
+/* 画面には見せないが、機械（Formspree）には送る入力欄 */
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* SNS（Instagramアイコン） */
+.contact-sns { display: flex; align-items: center; gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(250, 248, 242, .25); }
+.contact-sns p { margin: 0; font-size: 13px; opacity: .85; }
+.sns-list { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
+.sns-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; transition: opacity .3s; }
+.sns-link img { width: 28px; height: 28px; object-fit: contain; display: block; }
+.sns-link:hover { opacity: .7; }
+/* フォームの角丸：SERVICEのカード（6px）とそろえる */
+.contact input:not([type='radio']), .contact textarea, .contact .project-option, .contact .cta { border-radius: 6px; }
 /* =========================
    CASE STUDIES / FOOTER
 ========================= */
@@ -350,6 +360,7 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   .about-copy { order: 2; }
   .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .contact h2 { font-size: clamp(26px, 7vw, 38px); }
+  .contact-sns { flex-wrap: wrap; gap: 8px 14px; }
   .project-grid { grid-template-columns: 1fr; }
   footer { flex-wrap: wrap; gap: 24px; }
   .case-main { padding-top: 24px; }
