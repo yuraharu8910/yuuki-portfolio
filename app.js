@@ -313,6 +313,15 @@ if (form) {
   const status = document.getElementById('form-status');
   const result = document.getElementById('contact-result');
   const endpoint = form.dataset.endpoint;   // index.html の data-endpoint に入れたFormspreeのURL
+  const sheetEndpoint = form.dataset.sheetEndpoint;   // 管理表に記録する Apps Script のURL（未設定なら記録しない）
+
+  // 管理表への記録：Formspreeとは別に、Apps Scriptへ同じ内容を送る。
+  // mode: 'no-cors' … 別サイト（Google）へ送るための指定。返事は読めないが、送信はされる。
+  // 記録に失敗しても、お客さんへの表示（送信完了）には影響させない。
+  function recordToSheet(data) {
+    if (!sheetEndpoint) return;
+    fetch(sheetEndpoint, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) }).catch(() => {});
+  }
 
   form.addEventListener('submit', async event => {
     event.preventDefault();               // ページ移動せず、この場で送信する
@@ -339,6 +348,7 @@ if (form) {
         headers: { Accept: 'application/json' }  // Formspreeに「結果をJSONで返して」と伝える
       });
       if (!response.ok) throw new Error('send failed');
+      recordToSheet(new FormData(form));   // メール送信が成功したら、管理表にも記録
       // 成功：フォームを隠して完了メッセージを表示
       form.reset();
       form.hidden = true;

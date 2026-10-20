@@ -346,7 +346,8 @@
           <div>
             <!-- 問い合わせフォーム：送信内容は Formspree 経由でメールに届く
                  data-endpoint に Formspree でもらったURL（https://formspree.io/f/〇〇〇〇）を入れると送信できるようになる -->
-            <form id="contact-form" data-endpoint="https://formspree.io/f/xrpevjbj" novalidate>
+            <!-- data-sheet-endpoint … 管理表（Googleスプレッドシート）に自動で1行追加する Apps Script のURL -->
+            <form id="contact-form" data-endpoint="https://formspree.io/f/xrpevjbj" data-sheet-endpoint="https://script.google.com/macros/s/AKfycbwhTcz5qrJIetBV4aNj_v1aI6w9JNQ3qCOQphppU75YlVfzjHQtCYXgsDUyB4oVWGK4/exec" novalidate>
               <!-- メールの件名（Formspree用の隠し項目） -->
               <input type="hidden" name="_subject" value="【ポートフォリオ】お問い合わせが届きました">
               <!-- 迷惑メール対策：人には見えない入力欄。ここに入力があるとFormspreeが自動で破棄する -->
