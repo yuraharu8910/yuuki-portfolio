@@ -70,6 +70,8 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .hero-copy h1 { font-size: clamp(32px, 3.65vw, 62px); line-height: 1.5; letter-spacing: .025em; margin-bottom: 24px; white-space: normal; }
 .hero-description { font-size: clamp(13px, 1.1vw, 16px); line-height: 1.95; margin-bottom: 22px; }
 .hero-description span { display: block; }
+/* FV：美容業界での経験。説明文より小さく・薄くして、補足として読ませる */
+.hero-description .hero-proof { margin-top: 12px; font-size: 13px; line-height: 1.8; color: var(--muted); }
 .hero-actions { display: flex; align-items: center; gap: 14px; }
 /* 「制作実績を見る」「相談する」を丸いボタンに（スマホ・PC共通の見た目） */
 .hero-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-width: 176px; min-height: 52px; padding: 0 28px; border: 1px solid var(--ink); border-radius: 999px; font-size: 15px; letter-spacing: .04em; text-decoration: none; white-space: nowrap; transition: background .3s, color .3s, opacity .3s; }
@@ -405,7 +407,8 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   .case-bottom { flex-direction: column; align-items: stretch; }
   .case-screens { grid-template-columns: minmax(0, 1fr); }
   .case-screens figure:last-child { width: min(62%, 260px); }
-  .profile { grid-template-columns: 85px minmax(0, 1fr); gap: 12px; }
+  /* 見出し列は85pxを基本に、「BACKGROUND」のような長い見出しのときだけ文字幅まで広げる */
+  .profile { grid-template-columns: minmax(85px, max-content) minmax(0, 1fr); gap: 12px; }
 }
 /* =========================
    REDUCED MOTION
