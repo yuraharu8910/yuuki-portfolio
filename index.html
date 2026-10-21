@@ -372,6 +372,18 @@
             <!-- 問い合わせフォーム：送信内容は Formspree 経由でメールに届く
                  data-endpoint に Formspree でもらったURL（https://formspree.io/f/〇〇〇〇）を入れると送信できるようになる -->
             <!-- data-sheet-endpoint … 管理表（Googleスプレッドシート）に自動で1行追加する Apps Script のURL -->
+            <!-- クラウドソーシング経由の方への案内（契約前の外部連絡を避けるため、フォームより先に常に表示する） -->
+            <div class="cs-notice">
+              <p class="cs-notice__title">クラウドソーシングでご提案をご覧の方へ</p>
+              <p>ご連絡は、応募元サービスのメッセージ機能からお願いいたします。</p>
+              <!-- TODO: 0-A クラウドワークスのプロフィールURLが決まったら、href の〇〇を書き換えてコメントを外す
+              <a class="text-link" href="〇〇" target="_blank" rel="noopener">
+                クラウドワークスのプロフィールを見る <span aria-hidden="true">↗</span>
+              </a>
+              -->
+            </div>
+            <!-- ここから下は、直接ご相談いただく方向けのフォーム -->
+            <p class="form-lead">直接のご相談はこちらのフォームから</p>
             <form id="contact-form" data-endpoint="https://formspree.io/f/xrpevjbj" data-sheet-endpoint="https://script.google.com/macros/s/AKfycbwhTcz5qrJIetBV4aNj_v1aI6w9JNQ3qCOQphppU75YlVfzjHQtCYXgsDUyB4oVWGK4/exec" novalidate>
               <!-- メールの件名（Formspree用の隠し項目） -->
               <input type="hidden" name="_subject" value="【ポートフォリオ】お問い合わせが届きました">

@@ -248,6 +248,20 @@ textarea { resize: vertical; }
 /* SNS（Instagramアイコン） */
 .contact-sns { display: flex; align-items: center; gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(250, 248, 242, .25); }
 .contact-sns p { margin: 0; font-size: 13px; opacity: .85; }
+/* クラウドソーシング経由の方への案内ブロック
+   CONTACT は背景が濃い緑（--ink）なので、明るい箱（--soft）の中の文字は --ink にして読めるようにする */
+.cs-notice {
+  margin-bottom: 32px;
+  padding: 20px 24px;
+  border-radius: 6px;
+  background: var(--soft);
+  color: var(--ink);
+}
+.cs-notice p { margin: 0; }
+.cs-notice .cs-notice__title { font-weight: 600; margin-bottom: 6px; }
+.cs-notice .text-link { margin-top: 10px; }
+/* フォームの前置き：背景が濃い緑なので、--muted ではなく明るい文字を少し薄くして使う（SNS欄の文と同じ扱い） */
+.form-lead { font-size: 13px; opacity: .85; margin: 0 0 12px; }
 .sns-list { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
 .sns-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; transition: opacity .3s; }
 .sns-link img { width: 28px; height: 28px; object-fit: contain; display: block; }
@@ -287,6 +301,8 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
 .case-video { width: min(100%, 360px); height: auto; aspect-ratio: 9 / 16; background: var(--ink); margin-bottom: 18px; }
 .case-bottom { display: flex; gap: 32px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 .case-bottom small { display: block; font-size: 12px; letter-spacing: .12em; }
+/* 詳細ページ末尾：クラウドソーシング経由の方への注記（1行まるごと使って、ボタンやリンクの下に置く） */
+.cs-note { flex-basis: 100%; margin: 0; font-size: 12px; color: var(--muted); }
 /* =========================
    TABLET / SHORT DESKTOP
 ========================= */
