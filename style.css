@@ -242,6 +242,9 @@ textarea { resize: vertical; }
 #contact-result h3 { font-size: 21px; font-family: var(--font-display); }
 /* 画面には見せないが、機械（Formspree）には送る入力欄 */
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* 迷惑メール対策の隠し入力欄：上の「.contact input」の width: 100% などが優先されて、
+   見えないまま画面幅ぶん右へはみ出し、ページが横に動いていた。同じ強さのセレクタを後に書いて1pxに戻す */
+.contact input.visually-hidden { width: 1px; min-width: 0; height: 1px; min-height: 0; padding: 0; border: 0; }
 /* SNS（Instagramアイコン） */
 .contact-sns { display: flex; align-items: center; gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(250, 248, 242, .25); }
 .contact-sns p { margin: 0; font-size: 13px; opacity: .85; }
