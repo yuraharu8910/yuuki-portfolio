@@ -55,90 +55,19 @@
           </div>
         </div>
         <div class="movie-caption">
-          <a class="scroll-cue" href="#how">SCROLL TO GROW ↓</a>
+          <!-- スクロール誘導：FVのすぐ下にある作品一覧（#works）へ移動する -->
+          <a class="scroll-cue" href="#works">SCROLL TO WORKS ↓</a>
         </div>
         <p id="video-status" class="video-status" role="status"></p>
         <noscript>
           <p class="notice">動画の操作にはJavaScriptを有効にしてください。</p>
         </noscript>
       </section>
-      <!-- ========================= HOW ========================= -->
-      <section id="how" class="how wrap section">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">02 / HOW I WORK</p>
-            <h2>
-              <span class="phrase">想いが、形になり、</span>
-              <span class="phrase">育っていくまで。</span>
-            </h2>
-          </div>
-          <p class="muted">静かに育ち、最後に実る。<br>一つひとつの工程を、丁寧に。</p>
-        </div>
-        <div class="growth-layout">
-          <div class="growth-art" aria-hidden="true">
-            <!-- りんごの木：成長順の8枚を同じ位置に重ね、app.js がスクロール量に応じて透明度を切り替える。
-                 上から 0=種 / 1=芽 / 2=若木 / 3=若い木 / 4=葉が茂る / 5=実がふくらむ / 6=色づく / 7=赤い実 -->
-            <div class="tree-stack" id="tree-stack">
-              <img class="tree-frame" src="assets/how/tree-01.webp" alt="" width="900" height="720" decoding="async">
-              <img class="tree-frame" src="assets/how/tree-02.webp" alt="" width="900" height="720" decoding="async">
-              <img class="tree-frame" src="assets/how/tree-03.webp" alt="" width="900" height="720" decoding="async">
-              <img class="tree-frame" src="assets/how/tree-04.webp" alt="" width="900" height="720" decoding="async">
-              <img class="tree-frame" src="assets/how/tree-05.webp" alt="" width="900" height="720" decoding="async">
-              <img class="tree-frame" src="assets/how/tree-06.webp" alt="" width="900" height="720" decoding="async">
-              <img class="tree-frame" src="assets/how/tree-07.webp" alt="" width="900" height="720" decoding="async">
-              <img class="tree-frame" src="assets/how/tree-08.webp" alt="" width="900" height="720" decoding="async">
-            </div>
-          </div>
-          <ol class="growth-steps">
-            <li class="growth-step">
-              <div>
-                <p class="eyebrow ">01 HEAR</p>
-                <h3>想いを聞く</h3>
-                <p>まずは、サービスへの想いや、<br>「誰に、何を届けたいのか」を丁寧に伺います。</p>
-                <p class="step-tags">Interview / Hearing Sheet</p>
-              </div>
-            </li>
-            <li class="growth-step">
-              <div>
-                <p class="eyebrow ">02 RESEARCH</p>
-                <h3>知る・見つける</h3>
-                <p>ターゲットや競合を調べ、<br>サービスならではの魅力や課題を整理します。</p>
-                <p class="step-tags">Target / Persona / Competitor Research</p>
-              </div>
-            </li>
-            <li class="growth-step">
-              <div>
-                <p class="eyebrow ">03 DESIGN</p>
-                <h3>伝わる形を考える</h3>
-                <p>リサーチをもとに情報を整理し、<br>デザイン・コンテンツ・導線を設計します。</p>
-                <p class="step-tags">Structure / Wireframe / Visual</p>
-              </div>
-            </li>
-            <li class="growth-step">
-              <div>
-                <p class="eyebrow ">04 CREATE</p>
-                <h3>形にする</h3>
-                <p>設計した内容をもとに、<br>Webサイト・LP・Reelsなど、<br>目的に合った形へ落とし込みます。</p>
-                <p class="step-tags">Web / LP / Reels</p>
-              </div>
-            </li>
-            <li class="growth-step">
-              <div>
-                <p class="eyebrow fruit">05 GROW</p>
-                <h3>育てる</h3>
-                <p>公開して終わりではなく、<br>反応やデータを見ながら改善し、<br>より届く形へ育てていきます。</p>
-                <p class="step-tags">Analyze / Improve</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <p class="growth-end">想いを育て、<span>実り</span>につなぐ。</p>
-      </section>
       <!-- ========================= WORKS ========================= -->
       <section id="works" class="works wrap section">
         <div class="section-head">
           <div>
-            <p class="eyebrow">03 / SELECTED WORKS</p>
+            <p class="eyebrow">02 / SELECTED WORKS</p>
             <h2>育ててきた、かたち。</h2>
           </div>
           <p class="muted">制作実績・依頼制作・プロジェクト</p>
@@ -231,7 +160,7 @@
       <!-- ========================= SERVICE ========================= -->
       <section id="service" class="service section">
         <div class="wrap">
-          <p class="eyebrow">04 / SERVICE</p>
+          <p class="eyebrow">03 / SERVICE</p>
           <h2>
             <span class="phrase">想いを、</span>
             <span class="phrase">届くだけで終わらせない。</span>
@@ -302,7 +231,7 @@
       <!-- ========================= ABOUT ========================= -->
       <section id="about" class="about wrap section">
         <div class="about-heading">
-          <p class="eyebrow">05 / ABOUT</p>
+          <p class="eyebrow">04 / ABOUT</p>
           <h2>
             <span class="phrase">想いの先まで、</span>
             <span class="phrase">一緒に考える。</span>
@@ -330,6 +259,78 @@
             <dd>Design / Coding / Video / Generative AI</dd>
           </dl>
         </div>
+      </section>
+      <!-- ========================= HOW ========================= -->
+      <section id="how" class="how wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 / HOW I WORK</p>
+            <h2>
+              <span class="phrase">想いが、形になり、</span>
+              <span class="phrase">育っていくまで。</span>
+            </h2>
+          </div>
+          <p class="muted">静かに育ち、最後に実る。<br>一つひとつの工程を、丁寧に。</p>
+        </div>
+        <div class="growth-layout">
+          <div class="growth-art" aria-hidden="true">
+            <!-- りんごの木：成長順の8枚を同じ位置に重ね、app.js がスクロール量に応じて透明度を切り替える。
+                 上から 0=種 / 1=芽 / 2=若木 / 3=若い木 / 4=葉が茂る / 5=実がふくらむ / 6=色づく / 7=赤い実 -->
+            <div class="tree-stack" id="tree-stack">
+              <img class="tree-frame" src="assets/how/tree-01.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-02.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-03.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-04.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-05.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-06.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-07.webp" alt="" width="900" height="720" decoding="async">
+              <img class="tree-frame" src="assets/how/tree-08.webp" alt="" width="900" height="720" decoding="async">
+            </div>
+          </div>
+          <ol class="growth-steps">
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">01 HEAR</p>
+                <h3>想いを聞く</h3>
+                <p>まずは、サービスへの想いや、<br>「誰に、何を届けたいのか」を丁寧に伺います。</p>
+                <p class="step-tags">Interview / Hearing Sheet</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">02 RESEARCH</p>
+                <h3>知る・見つける</h3>
+                <p>ターゲットや競合を調べ、<br>サービスならではの魅力や課題を整理します。</p>
+                <p class="step-tags">Target / Persona / Competitor Research</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">03 DESIGN</p>
+                <h3>伝わる形を考える</h3>
+                <p>リサーチをもとに情報を整理し、<br>デザイン・コンテンツ・導線を設計します。</p>
+                <p class="step-tags">Structure / Wireframe / Visual</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow ">04 CREATE</p>
+                <h3>形にする</h3>
+                <p>設計した内容をもとに、<br>Webサイト・LP・Reelsなど、<br>目的に合った形へ落とし込みます。</p>
+                <p class="step-tags">Web / LP / Reels</p>
+              </div>
+            </li>
+            <li class="growth-step">
+              <div>
+                <p class="eyebrow fruit">05 GROW</p>
+                <h3>育てる</h3>
+                <p>公開して終わりではなく、<br>反応やデータを見ながら改善し、<br>より届く形へ育てていきます。</p>
+                <p class="step-tags">Analyze / Improve</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <p class="growth-end">想いを育て、<span>実り</span>につなぐ。</p>
       </section>
       <!-- ========================= CONTACT ========================= -->
       <section id="contact" class="contact section">
