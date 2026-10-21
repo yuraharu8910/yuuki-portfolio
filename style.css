@@ -194,6 +194,11 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .services article { display: flex; flex-direction: column; }
 .service-tags { margin-bottom: 28px; }                                        /* タグとリンクの間隔 */
 .service-link { align-self: flex-start; margin-top: auto; min-width: 200px; }  /* margin-top: auto … 下端にそろえる */
+/* SERVICE：対応範囲・制作条件（中の一覧は .profile の見た目を流用し、外側の余白だけここで足す） */
+.conditions { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.conditions h3 { margin-bottom: 16px; }
+/* .profile がもともと持つ上の線と余白は外す（.conditions の線と重なって、線が2本続いてしまうため） */
+.conditions .profile { margin-top: 0; padding-top: 0; border-top: 0; }
 .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); list-style: none; padding: 38px 0; margin: 52px 0 28px; border-block: 1px solid var(--line); gap: 24px; }
 .flow li { position: relative; text-align: center; }
 .flow strong { display: block; font: 500 clamp(15px, 1.6vw, 21px)/1.8 Arial, sans-serif; }
