@@ -70,7 +70,8 @@
             <p class="eyebrow">02 / SELECTED WORKS</p>
             <h2>育ててきた、かたち。</h2>
           </div>
-          <p class="muted">制作実績・依頼制作・プロジェクト</p>
+          <!-- 凡例：作品カードの種別バッジ（実案件 / 依頼制作 / 自主制作）の意味 -->
+          <p class="muted">実案件・依頼制作・自主制作</p>
         </div>
         <!-- 作品カード：画像は data-rotate の中の .slide を app.js が切り替える。
              作品ごとに PC（静止画）/ Smartphone（静止画）/ Reels（動画）を、ある分だけ並べる。
@@ -86,9 +87,13 @@
             </div>
             <a class="work-content" href="works/laviebelle.html">
               <p class="eyebrow">01 / CLIENT WORK</p>
+              <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
+              <p class="work-type">実案件</p>
               <p class="case-tag">MAIN CASE STUDY</p>
               <h3>La vie belle.mf</h3>
               <p class="meta">Web / LP / Chatbot</p>
+              <!-- 担当範囲：詳細ページの ROLE から抜き出したもの（新しく作らない） -->
+              <p class="work-role">担当：ヒアリング・ロゴ制作・チャットボットの設計と実装・Instagram運用</p>
               <p class="desc">サロンの想いと施術の魅力を整理したLPに、予約前の疑問にその場で答えるAIチャットボットを組み込みました。</p>
               <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
             </a>
@@ -98,12 +103,19 @@
               <a class="visual-link" href="works/su.html" aria-label="素 -SU- のケーススタディを見る" tabindex="-1">
                 <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/su/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
                 <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/su/card-sp.webp" alt="" width="480" height="1039" loading="lazy" decoding="async"></div></figure>
+                <!-- リール追加時：assets/works/su/ に card-reel.mp4 / card-reel.webp / reel.mp4 を置いてコメントを外す
+                <figure class="slide slide--phone" data-label="Reels"><div class="phone"><video src="assets/works/su/card-reel.mp4" poster="assets/works/su/card-reel.webp" muted playsinline preload="none" width="540" height="960"></video></div></figure>
+                -->
               </a>
             </div>
             <a class="work-content" href="works/su.html">
               <p class="eyebrow">02 / COMMISSIONED WORK</p>
+              <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
+              <p class="work-type">依頼制作</p>
               <h3>素 -SU-</h3>
               <p class="meta">Landing Page</p>
+              <!-- 担当範囲：詳細ページの ROLE から抜き出したもの（新しく作らない） -->
+              <p class="work-role">担当：市場調査・コピーライティング・LP構成・デザイン・コーディング・AIビジュアル</p>
               <p class="desc">「隠す」から「活かす」へ。リサーチからブランドの立ち位置を設計したヘアケアLP。</p>
               <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
             </a>
@@ -118,8 +130,12 @@
             </div>
             <a class="work-content" href="works/lumea-shift.html">
               <p class="eyebrow">03 / PROJECT</p>
+              <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
+              <p class="work-type">自主制作</p>
               <h3>LUMEA SHIFT</h3>
               <p class="meta">LP / Reels</p>
+              <!-- 担当範囲：詳細ページの ROLE から抜き出したもの（新しく作らない） -->
+              <p class="work-role">担当：市場調査・LP構成・UIデザイン・コーディング・AIアバター・動画制作</p>
               <p class="desc">「完璧じゃなくていい」を軸に、LPとReelsをひとつの世界観で設計した自主制作。</p>
               <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
             </a>
@@ -134,8 +150,13 @@
             </div>
             <a class="work-content" href="works/tomachi.html">
               <p class="eyebrow">04 / PROJECT</p>
+              <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
+              <!-- TODO: 0-B 種別が決まったら、次の行の〇〇を書き換えてコメントを外す
+              <p class="work-type">〇〇</p> -->
               <h3>とおまち夏花火ナイト</h3>
               <p class="meta">LP / Reels / Chatbot</p>
+              <!-- 担当範囲：詳細ページの ROLE から抜き出したもの（新しく作らない） -->
+              <p class="work-role">担当：AI画像・動画生成・LP制作一式・AIチャットボットの設計と実装</p>
               <p class="desc">イベントの魅力を楽しく伝え、LP・Reel・Chatbotへ展開したWebプロジェクト。</p>
               <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
             </a>
@@ -149,8 +170,13 @@
             </div>
             <a class="work-content" href="works/yuge.html">
               <p class="eyebrow">05 / PROJECT</p>
+              <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
+              <!-- TODO: 0-B 種別が決まったら、次の行の〇〇を書き換えてコメントを外す
+              <p class="work-type">〇〇</p> -->
               <h3>YUGE</h3>
               <p class="meta">Landing Page</p>
+              <!-- 担当範囲：詳細ページの ROLE から抜き出したもの（新しく作らない） -->
+              <p class="work-role">担当：企画・ペルソナ設計・ワイヤーフレーム・UIデザイン・コーディング</p>
               <p class="desc">サウナの空気感をビジュアルと言葉で伝える、世界観を大切に設計したランディングページ。</p>
               <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
             </a>

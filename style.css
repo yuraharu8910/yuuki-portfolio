@@ -158,6 +158,20 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .work-content h3 { font-size: clamp(24px, 2.6vw, 34px); line-height: 1.4; margin-bottom: 6px; }
 .work-content .meta { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
 .work-content .desc { margin: 0 0 20px; font-size: 15px; max-width: 32em; }
+/* 作品カード：種別バッジ（実案件 / 依頼制作 / 自主制作） */
+.work-type {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 2px 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+}
+/* 実案件（先頭の大きいカード）だけ塗りつぶして目立たせる */
+.work.featured .work-type { background: var(--ink); color: var(--paper); }
+/* 作品カード：担当範囲（.meta のすぐ下に置く。.meta の下余白12pxを打ち消して6pxの間隔にする） */
+.work-role { margin: -6px 0 12px; font-size: 13px; color: var(--muted); }
 /* Loonen風の小さな丸ボタン */
 .pill { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; padding: 0 22px; border: 1px solid var(--ink); border-radius: 999px; font: 12px/1 Arial, sans-serif; letter-spacing: .1em; transition: background .3s, color .3s; }
 .pill > span { transition: transform .3s; }
