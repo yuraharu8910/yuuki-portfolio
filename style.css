@@ -269,6 +269,10 @@ textarea { resize: vertical; }
 .cs-notice .text-link { margin-top: 10px; }
 /* フォームの前置き：背景が濃い緑なので、--muted ではなく明るい文字を少し薄くして使う（SNS欄の文と同じ扱い） */
 .form-lead { font-size: 13px; opacity: .85; margin: 0 0 12px; }
+/* CONTACT：番号（06 / CONTACT）のすぐ下に続けて見せるため、上の余白を詰める */
+.contact-sub { margin-top: -14px; }
+/* 送信ボタン下の返信の目安：背景が濃い緑なので、.form-lead と同じく明るい文字を少し薄くする */
+.form-note { font-size: 12px; opacity: .85; margin: 8px 0 0; }
 .sns-list { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
 .sns-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; transition: opacity .3s; }
 .sns-link img { width: 28px; height: 28px; object-fit: contain; display: block; }
