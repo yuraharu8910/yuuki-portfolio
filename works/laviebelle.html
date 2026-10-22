@@ -41,7 +41,7 @@
       <section class="case-hero">
         <p class="eyebrow">CLIENT WORK / CASE STUDY</p>
         <h1>La vie belle.mf</h1>
-        <p>Web / LP / Chatbot</p>
+        <p>Web / LP / Reels / Chatbot</p>
         <!-- メイン画像：LPを表示したノートPCとスマートフォンのモックアップ -->
         <div class="case-image">
           <img src="../assets/works/laviebelle/mockup-devices.webp" alt="La vie belle.mfのLPとチャットボットを表示したノートPCとスマートフォンのモックアップ" loading="eager" width="1080" height="783" decoding="async">
@@ -52,17 +52,24 @@
           <p class="eyebrow">01</p>
           <div>
             <h2>OVERVIEW</h2>
-            <p>札幌のフェイシャルレメディ®サロン「La vie belle.mf」のLPに、AIチャットボットを組み込みました。初回体験を検討している人の「予約の前にちょっと聞きたい」にその場で答え、料金・施術時間・アクセスなどの疑問を解消して、予約や相談は公式LINEへスムーズにつなげることをねらっています。</p>
+            <p>札幌のフェイシャルレメディ®サロン「La vie belle.mf」の、初回体験の予約につなげるLPを制作しました。ヒアリングから撮影、構成、デザイン、コーディングまでを担当し、LPには予約前の疑問にその場で答えるAIチャットボットを組み込んでいます。料金・施術時間・アクセスなどの疑問を解消して、予約や相談は公式LINEへつなげます。</p>
             <!-- 目的・担当範囲・使用ツールをひと目で分かるように一覧にする -->
             <dl class="profile case-meta">
-              <dt>GOAL</dt><dd>予約前の疑問にその場で答え、公式LINEでの予約・相談へつなげる</dd>
-              <dt>ROLE</dt><dd>ヒアリング、ロゴ制作、Instagram運用、チャットボットの設計・実装（画面・ナレッジ・バックエンド）、LPに合わせたチャット画面のデザインとコーディング、よくある質問のスプレッドシート設計、Google Apps ScriptによるClaude API連携、回答ルールの設計、公式LINEへの導線設計、利用状況の計測設定</dd>
-              <dt>TOOLS</dt><dd>VS Code / HTML / CSS / JavaScript / Google Apps Script / Google スプレッドシート / Claude（Claude API）/ Googleタグマネージャー</dd>
+              <dt>GOAL</dt><dd>初回体験を考えている人に、LPでサロンの魅力を伝え、予約前の疑問はチャットボットで解消して、公式LINEでの予約・相談へつなげる</dd>
+              <!-- 担当範囲：分野ごとに1行ずつ。分野名は太字にして区別する -->
+              <dt>ROLE</dt>
+              <dd>
+                <span class="role-line"><strong>ブランディング：</strong>ヒアリング、ロゴ制作</span>
+                <span class="role-line"><strong>LP：</strong>構成、撮影、デザイン、コーディング</span>
+                <span class="role-line"><strong>リール：</strong>撮影、構成、編集、投稿</span>
+                <span class="role-line"><strong>チャットボット：</strong>設計・実装、チャット画面のデザインとコーディング、よくある質問のスプレッドシート設計、Google Apps ScriptによるClaude API連携、回答ルールの設計</span>
+                <span class="role-line"><strong>導線・運用：</strong>公式LINEへの導線設計、利用状況の計測設定、Instagram運用</span>
+              </dd>
+              <dt>TOOLS</dt><dd>Figma / VS Code / HTML / CSS / JavaScript / CapCut / Google Apps Script / Google スプレッドシート / Claude（Claude API）/ Googleタグマネージャー</dd>
               <!-- 種別：トップの作品カードのバッジと同じ（実案件 / 依頼制作 / 自主制作） -->
               <dt>TYPE</dt><dd>実案件</dd>
-              <!-- TODO: 0-C 制作期間（例：約3週間）が決まったら、〇〇を書き換えてコメントを外す
-              <dt>PERIOD</dt><dd>〇〇</dd>
-              -->
+              <!-- 制作期間 -->
+              <dt>PERIOD</dt><dd>約2か月（ヒアリング・撮影〜制作）</dd>
               <!-- 公開状況：実際に測った成果（数字）がないので「公開中」までにとどめる -->
               <dt>STATUS</dt><dd>公開中</dd>
             </dl>
@@ -72,13 +79,22 @@
           <p class="eyebrow">02</p>
           <div>
             <h2>TARGET</h2>
-            <p>LPを見て、初回体験の予約を考えている女性。予約の前に、料金や施術時間、メイクのまま行けるかなどを気軽に確かめたい人を想定しました。</p>
+            <p>LPを見て、初回体験の予約を考えている40代の女性。予約の前に、料金や施術時間、メイクのまま行けるかなどを気軽に確かめたい人を想定しました。</p>
           </div>
         </section>
         <section class="case-section">
           <p class="eyebrow">03</p>
           <div>
             <h2>DESIGN POINT</h2>
+            <!-- LP とチャットボットの2つに分けて、LP を先に置く -->
+            <h3 class="case-subhead">LP</h3>
+            <ul class="case-points">
+              <li><strong>「共感 → 信頼 → 行動」の流れで構成</strong>お悩みへの共感から始めて、サロンの考え方や施術内容で信頼につなげ、最後に予約へ進んでもらう順番で情報を並べました。</li>
+              <li><strong>迷わず予約へ進めるボタン配置</strong>予約を考えるタイミングに合わせてページ内に予約ボタンを置き、さらに画面に追従する固定ボタンで、どこまで読んでいてもすぐ予約へ進めるようにしました。</li>
+              <li><strong>サロンらしさが伝わる世界観</strong>サロンのブランドカラーを使い、自分で撮影した写真と動画で、ターゲットの方に合わせた落ち着いた世界観をつくりました。</li>
+            </ul>
+            <!-- チャットボット：以前からの4項目（文章はそのまま） -->
+            <h3 class="case-subhead">チャットボット</h3>
             <ul class="case-points">
               <li><strong>3段階で確かめながら構築</strong>「画面のみ → スプレッドシートを参照するキーワード回答 → AI回答」の順に、段階ごとに動作を確認しながら作りました。</li>
               <li><strong>書かれた範囲だけで答える</strong>AIはスプレッドシートの情報の範囲だけで答え、書かれていないことや予約・空き状況の確認は公式LINEへ案内します。効果を言い切る回答もしないようにしています。</li>
@@ -103,6 +119,7 @@
           <p class="eyebrow">05</p>
           <div>
             <h2>REELS</h2>
+            <p>撮影・構成・編集・投稿まで担当した、サロン紹介のリールです。</p>
             <video class="case-video" controls playsinline preload="none" poster="../assets/works/laviebelle/card-reel.webp" width="540" height="960" aria-label="La vie belle.mfのサロン紹介リール">
               <source src="../assets/works/laviebelle/reel.mp4" type="video/mp4">
             </video>
