@@ -296,6 +296,8 @@ footer .brand span { margin: 8px 0 0; }
 .case-section h2 { font: 500 clamp(20px, 2vw, 27px)/1.6 Arial, sans-serif; letter-spacing: .04em; }
 .case-section p { max-width: 42em; }
 .case-section .eyebrow { margin-top: 7px; }
+/* 詳細ページの見出しの上に置く英語ラベル（OVERVIEW など）。左の番号より控えめにして、日本語の見出しにすぐ続ける */
+.case-section .case-label { margin: 0 0 4px; color: var(--muted); }
 /* ケーススタディの一覧（目的・担当・ツール）と工夫ポイント */
 .case-meta { margin-top: 24px; }
 .case-points { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 18px; max-width: 42em; }
