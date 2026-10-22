@@ -54,12 +54,20 @@
             <!-- 見出し：英語は小さなラベル（eyebrow）として残し、日本語の見出しを大きく見せる -->
             <p class="eyebrow case-label">OVERVIEW</p>
             <h2>概要</h2>
-            <p>地域の花火イベント「とおまち夏花火ナイト」のLP・リール・AIチャットボット。リールから訪れた人を観覧席の予約と宿のLINE相談へ案内し、来場前の疑問をその場で解消して離脱を減らすことを目指しました。</p>
+            <p>架空の観光協会が主催する花火イベント「とおまち夏花火ナイト」を想定し、LP・リール・AIチャットボットを制作しました。町の外に住む人をリールからLPへ案内し、観覧席の予約と宿のLINE相談へつなげます。来場前の疑問にはチャットボットがその場で答え、離脱を減らすことを目指しました。</p>
             <!-- 目的・担当範囲・使用ツールをひと目で分かるように一覧にする -->
             <dl class="profile case-meta">
               <dt>GOAL</dt><dd>リールからの流入を、観覧席の予約・宿のLINE相談へつなげる／来場前の疑問をその場で解消する</dd>
-              <dt>ROLE</dt><dd>キャラクター「とおま」のAI画像生成、AI動画生成、LP制作一式、AIチャットボットの設計・実装、ナレッジ設計</dd>
-              <dt>TOOLS</dt><dd>Figma / Photoshop / AI画像生成 / AI動画生成 / Claude（Claude API）/ Google スプレッドシート / Railway / VS Code / HTML・CSS・JavaScript</dd>
+              <!-- 担当範囲：分野ごとに1行ずつ。分野名は太字にして区別する（La vie belle.mf と同じ） -->
+              <dt>ROLE</dt>
+              <dd>
+                <span class="role-line"><strong>企画：</strong>コンセプト設計、ペルソナ設定</span>
+                <span class="role-line"><strong>キャラクター：</strong>「とおま」のAI画像生成・AI動画生成、ElevenLabsによる音声制作</span>
+                <span class="role-line"><strong>リール：</strong>絵コンテ、テロップ、編集</span>
+                <span class="role-line"><strong>LP：</strong>構成、デザイン、コーディング</span>
+                <span class="role-line"><strong>チャットボット：</strong>設計・実装、ナレッジ設計</span>
+              </dd>
+              <dt>TOOLS</dt><dd>Figma / Photoshop / AI画像生成 / AI動画生成 / ElevenLabs / CapCut / VS Code / HTML・CSS・JavaScript / Claude（Claude API）/ Google スプレッドシート / Railway</dd>
               <!-- 種別：トップの作品カードのバッジと同じ（実案件 / 依頼制作 / 自主制作） -->
               <dt>TYPE</dt><dd>自主制作</dd>
               <!-- TODO: 0-C 制作期間（例：約3週間）が決まったら、〇〇を書き換えてコメントを外す
@@ -75,7 +83,8 @@
           <div>
             <p class="eyebrow case-label">TARGET</p>
             <h2>ターゲット</h2>
-            <p>週末のデートで出かける、20代後半〜30代の会社員女性を想定しました。</p>
+            <p>近隣の都市で働く、20代半ば〜後半の会社員女性を想定しました。週末はちょっとした非日常でリフレッシュしたい一方で、人混みや行列、念入りな事前計画は苦手。大きな花火大会は、場所取りや帰りの満員電車を考えると「今年は家でいいか」となりがちな人です。</p>
+            <p>情報はInstagramのリールで探すことが多いため、リールで「気合いを入れずにふらっと行けそう」と感じてもらい、LPで混雑の穏やかさや駅からの近さを確かめて、恋人と観覧席の予約や宿の相談へ進めるように設計しました。</p>
           </div>
         </section>
         <section class="case-section">
@@ -83,6 +92,18 @@
           <div>
             <p class="eyebrow case-label">DESIGN POINT</p>
             <h2>工夫したポイント</h2>
+            <!-- リール → LP → キャラクター・チャットボット の順に、3つに分けて並べる -->
+            <h3 class="case-subhead">リール</h3>
+            <ul class="case-points">
+              <li><strong>最初の3秒で手を止める</strong>ターゲットの本音「花火は見たいけど、人混みは嫌」を冒頭に置きました。音を出さずに見る人が多いため、セリフはすべて大きな字幕で表示しています。</li>
+              <li><strong>「ゆったり感」を映像のテンポでも表現</strong>速いカットや大きな音は使わず、落ち着いたテンポで編集しました。イベントの「ふらっと行ける」心地よさを、映像そのもので伝えています。</li>
+            </ul>
+            <h3 class="case-subhead">LP</h3>
+            <ul class="case-points">
+              <li><strong>2つのゴールに迷わずつながる構成</strong>「共感 → 解決 → 体験 → 予約」の流れで、観覧席の予約と宿のLINE相談の2つへ導きました。混雑や天候について言い切る表現は使わないルールを決めて、信頼を損なわないようにしています。</li>
+            </ul>
+            <!-- キャラクター・チャットボット：以前からの4項目（文章はそのまま） -->
+            <h3 class="case-subhead">キャラクター・チャットボット</h3>
             <ul class="case-points">
               <li><strong>キャラクターと映像をすべてAIで生成</strong>案内役のキャラクター「とおま」、画像、背景動画をAIで生成しました。チャットを開くボタンにも、動く「とおま」を使っています。</li>
               <li><strong>チャットボットを3段階で構築</strong>見た目の画面から始め、スプレッドシートのルールで答える段階、Claude APIで答える段階へと順に作り込みました。</li>
@@ -109,6 +130,7 @@
           <div>
             <p class="eyebrow case-label">REELS</p>
             <h2>リール動画</h2>
+            <p>絵コンテから、キャラクターと音声の生成、テロップ、編集までを担当したリールです。</p>
             <video poster="../assets/works/tomachi/card-reel.webp" class="case-video" controls playsinline preload="none" width="540" height="960" aria-label="とおまち夏花火ナイトのリール">
               <source src="../assets/works/tomachi/reel.mp4" type="video/mp4">
             </video>
