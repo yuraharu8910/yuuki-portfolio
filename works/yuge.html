@@ -8,7 +8,16 @@
     <title>YUGE — CASE STUDY | Yuuki</title>
     <link rel="stylesheet" href="../style.css?v=20261022">
     <script src="../app.js?v=20261022" defer></script>
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <!-- ファビコン：対応しているブラウザは SVG を使い、使えないときは PNG・ICO を使う -->
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../assets/favicon-16.png" sizes="16x16" type="image/png">
+    <!-- 古いブラウザ・Windows用（16/32/48pxを1ファイルにまとめたもの） -->
+    <link rel="icon" href="../assets/favicon.ico" sizes="48x48">
+    <!-- iPhoneのホーム画面用（180×180。角はiOSが自動で丸める） -->
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <!-- Androidのホーム画面用（アイコンの一覧と色の設定ファイル） -->
+    <link rel="manifest" href="../assets/site.webmanifest">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:title" content="YUGE — CASE STUDY | Yuuki">

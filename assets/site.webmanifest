@@ -1,0 +1,11 @@
+{
+  "name": "Yuuki Portfolio",
+  "short_name": "Yuuki",
+  "icons": [
+    { "src": "android-chrome-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "android-chrome-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#203f31",
+  "background_color": "#faf8f2",
+  "display": "browser"
+}
