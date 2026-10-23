@@ -270,7 +270,7 @@ textarea { resize: vertical; }
 .cs-notice .text-link { margin-top: 10px; justify-content: flex-start; gap: 8px; }
 /* フォームの前置き：背景が濃い緑なので、--muted ではなく明るい文字を少し薄くして使う（SNS欄の文と同じ扱い） */
 .form-lead { font-size: 13px; opacity: .85; margin: 0 0 12px; }
-/* CONTACT：番号（06 / CONTACT）のすぐ下に続けて見せるため、上の余白を詰める */
+/* CONTACT：番号（05 / CONTACT）のすぐ下に続けて見せるため、上の余白を詰める */
 .contact-sub { margin-top: -14px; }
 /* 送信ボタン下の返信の目安：背景が濃い緑なので、.form-lead と同じく明るい文字を少し薄くする */
 /* keep-all … 日本語の途中で改行せず、「（週20時間程度）」のようなまとまりの前で折り返す */
