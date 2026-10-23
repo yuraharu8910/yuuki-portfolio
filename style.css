@@ -13,7 +13,8 @@
   --content-width: 1120px;
   --section: clamp(72px, 8vw, 116px);
   --font-body: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
-  --font-display: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif CJK JP', serif;
+  /* 見出し用の明朝体。先頭の Noto Serif JP は Google Fonts から読み込む（どの端末でも同じ書体にそろえるため） */
+  --font-display: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif CJK JP', serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
