@@ -51,14 +51,20 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .button-secondary { background: transparent; color: var(--ink); }
 .text-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 44px; padding-block: 8px; border-bottom: 1px solid currentColor; font-size: 14px; }
 .text-link > span:last-child { transition: transform .25s; }
-a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-child { transform: translateX(4px); }
+/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+@media (hover: hover) {
+  a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-child { transform: translateX(4px); }
+}
 .quiet-link { display: inline-flex; min-height: 44px; align-items: center; font-size: 13px; text-decoration: underline; text-underline-offset: 5px; }
 .header { height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-inline: var(--gutter); border-bottom: 1px solid var(--line); position: relative; z-index: 10; background: var(--paper); }
 .brand { font: 36px/1 Georgia, serif; letter-spacing: -2px; min-height: 44px; display: flex; align-items: center; }
 .brand span { font: 12px/1.5 Arial, sans-serif; letter-spacing: .1em; margin-left: 18px; }
 .header nav { display: flex; gap: clamp(20px, 3vw, 40px); align-items: center; font-size: 14px; }
 .header nav a { display: inline-flex; align-items: center; min-height: 44px; }
-.header nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+@media (hover: hover) {
+  .header nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+}
 .nav-contact { border: 1px solid var(--ink); border-radius: 30px; padding: 3px 22px; }
 .menu-toggle { display: none; min-width: 64px; min-height: 44px; background: transparent; color: var(--ink); border: 0; font-size: 12px; letter-spacing: .12em; }
 /* =========================
@@ -78,8 +84,11 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .hero-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-width: 176px; min-height: 52px; padding: 0 28px; border: 1px solid var(--ink); border-radius: 999px; font-size: 15px; letter-spacing: .04em; text-decoration: none; white-space: nowrap; transition: background .3s, color .3s, opacity .3s; }
 .hero-actions .text-link { background: var(--ink); color: var(--paper); }      /* 制作実績を見る：塗りつぶし（メイン） */
 .hero-actions .quiet-link { background: var(--paper); color: var(--ink); }     /* 対応範囲・制作条件を見る：線だけ（サブ） */
-.hero-actions .text-link:hover { opacity: .85; }                              /* マウスを乗せたら少し明るく */
-.hero-actions .quiet-link:hover { background: var(--ink); color: var(--paper); } /* マウスを乗せたら塗りつぶし */
+/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+@media (hover: hover) {
+  .hero-actions .text-link:hover { opacity: .85; }                              /* マウスを乗せたら少し明るく */
+  .hero-actions .quiet-link:hover { background: var(--ink); color: var(--paper); } /* マウスを乗せたら塗りつぶし */
+}
 .movie-caption { position: absolute; inset: auto var(--gutter) 14px; display: flex; justify-content: space-between; align-items: center; gap: 15px; z-index: 2; }
 .scroll-cue { display: flex; min-height: 44px; align-items: center; font: 12px/1.6 Arial, sans-serif; letter-spacing: .08em; }
 .video-status { position: absolute; bottom: 68px; left: var(--gutter); font-size: 13px; background: var(--paper); }
@@ -126,7 +135,10 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .9s ease; }
 .slide.is-active { opacity: 1; }
 .slide > img.cover { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
-.work:hover .slide > img.cover { transform: scale(1.03); }
+/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+@media (hover: hover) {
+  .work:hover .slide > img.cover { transform: scale(1.03); }
+}
 /* Smartphone / Reels：淡い下地の上に、実機に近い比率のスマホ枠
    container-type: size … この枠の「高さ」を cqh という単位で中身から使えるようにする。
    スマホの高さ（--ph）を決めれば、横幅・フチの太さ・角の丸み・カメラの大きさがすべて比率で決まるので、
@@ -149,7 +161,10 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 .phone::after { content: ''; position: absolute; top: 24%; right: calc(var(--ph) * -.018 - 2px); width: 2px; height: 11%; border-radius: 0 2px 2px 0; background: #2a2f2c; }
 /* 画面：本体より少し小さい丸みで切り抜く */
 .phone img, .phone video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: calc(var(--ph) * .072); }
-.work:hover .phone { transform: translateY(-2%); }
+/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+@media (hover: hover) {
+  .work:hover .phone { transform: translateY(-2%); }
+}
 /* 切り替えボタン（PC / Smartphone / Reels）。画像が2枚以上ある作品だけ app.js が作る */
 .slide-tabs { position: absolute; left: 12px; top: 12px; z-index: 2; display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(250, 248, 242, .9); backdrop-filter: blur(6px); }
 .slide-tabs button { border: 0; border-radius: 999px; background: transparent; color: var(--muted); font: 11px/1 Arial, sans-serif; letter-spacing: .08em; padding: 7px 11px; }
@@ -178,8 +193,11 @@ a.text-link:hover > span:last-child, .work-card:hover .text-link > span:last-chi
 /* Loonen風の小さな丸ボタン */
 .pill { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; padding: 0 22px; border: 1px solid var(--ink); border-radius: 999px; font: 12px/1 Arial, sans-serif; letter-spacing: .1em; transition: background .3s, color .3s; }
 .pill > span { transition: transform .3s; }
-.work-content:hover .pill { background: var(--ink); color: var(--paper); }
-.work-content:hover .pill > span { transform: translateX(3px); }
+/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+@media (hover: hover) {
+  .work-content:hover .pill { background: var(--ink); color: var(--paper); }
+  .work-content:hover .pill > span { transform: translateX(3px); }
+}
 /* =========================
    SERVICE
 ========================= */
@@ -279,7 +297,10 @@ textarea { resize: vertical; }
 .sns-list { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
 .sns-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; transition: opacity .3s; }
 .sns-link img { width: 28px; height: 28px; object-fit: contain; display: block; }
-.sns-link:hover { opacity: .7; }
+/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+@media (hover: hover) {
+  .sns-link:hover { opacity: .7; }
+}
 /* フォームの角丸：SERVICEのカード（6px）とそろえる */
 .contact input:not([type='radio']), .contact textarea, .contact .project-option, .contact .cta { border-radius: 6px; }
 /* =========================
