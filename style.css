@@ -59,6 +59,9 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .header { height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-inline: var(--gutter); border-bottom: 1px solid var(--line); position: relative; z-index: 10; background: var(--paper); }
 .brand { font: 36px/1 Georgia, serif; letter-spacing: -2px; min-height: 44px; display: flex; align-items: center; }
 .brand span { font: 12px/1.5 Arial, sans-serif; letter-spacing: .1em; margin-left: 18px; }
+/* ヘッダーロゴ：「yuuki」と「PORTFOLIO」を1行に並べ、文字の下端（ベースライン）をそろえる */
+.header .brand { display: block; flex-shrink: 0; line-height: 44px; white-space: nowrap; }
+.header .brand span { margin-left: 8px; font: 600 12px/1 Arial, sans-serif; letter-spacing: .14em; }
 .header nav { display: flex; gap: clamp(20px, 3vw, 40px); align-items: center; font-size: 14px; }
 .header nav a { display: inline-flex; align-items: center; min-height: 44px; }
 /* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
