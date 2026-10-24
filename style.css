@@ -264,8 +264,12 @@ textarea { resize: vertical; }
 .project-option:has(input:checked) { background: var(--paper); color: var(--ink); }
 .project-option input { accent-color: var(--ink); width: 18px; height: 18px; flex-shrink: 0; margin: 0; }
 .project-option input:focus-visible { outline-color: var(--red); }
-.contact .cta { margin-top: 15px; background: var(--paper); color: var(--ink); border-color: var(--paper); cursor: pointer; }
+.contact .cta { margin-top: 15px; background: var(--paper); color: var(--ink); border-color: var(--paper); cursor: pointer; transition: opacity .3s; }
 .contact .cta:disabled { opacity: .6; cursor: wait; }
+/* 送信ボタン：マウスを乗せたら少し薄くする（FVの「制作実績を見る」と同じ .85）。送信中（disabled）は .6 のまま */
+@media (hover: hover) {
+  .contact .cta:hover:not(:disabled) { opacity: .85; }
+}
 #form-status { font-size: 13px; margin: 5px 0 0; min-height: 1.5em; }
 #contact-result { padding: 28px; border: 1px solid var(--line); border-radius: 6px; }
 #contact-result h3 { font-size: 21px; font-family: var(--font-display); }
