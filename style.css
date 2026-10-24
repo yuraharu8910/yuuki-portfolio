@@ -456,6 +456,14 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   .profile { grid-template-columns: minmax(85px, max-content) minmax(0, 1fr); gap: 12px; }
 }
 /* =========================
+   押したときの反応（:active）
+========================= */
+/* 押している間だけ少し縮めて、押せたことを伝える（マウス・タッチ共通）。
+   作品カードはカード全体がリンクなので、中の「View Case Study」だけを縮める */
+.cta:active, .hero-actions a:active, .text-link:active, .quiet-link:active,
+.nav-contact:active, .sns-link:active, .menu-toggle:active,
+.work-content:active .pill { transform: scale(.97); }
+/* =========================
    REDUCED MOTION
 ========================= */
 @media (prefers-reduced-motion: reduce) {
