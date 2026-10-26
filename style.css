@@ -69,7 +69,9 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
   .header nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
 }
 .nav-contact { border: 1px solid var(--ink); border-radius: 30px; padding: 3px 22px; }
-.menu-toggle { display: none; min-width: 64px; min-height: 44px; background: transparent; color: var(--ink); border: 0; font-size: 12px; letter-spacing: .12em; }
+.menu-toggle { display: none; position: relative; width: 64px; min-width: 64px; min-height: 44px; background: transparent; color: var(--ink); border: 0; font-size: 12px; letter-spacing: .12em; text-indent: -9999px; overflow: hidden; white-space: nowrap; }
+.menu-toggle::before { content: ''; position: absolute; inset: 0; background-image: url("assets/icons/menu-apple.png"); background-size: 32px 32px; background-position: center; background-repeat: no-repeat; transition: transform .2s; }
+.menu-toggle[aria-expanded="true"]::before { transform: rotate(-15deg); }
 /* =========================
    HERO — unmodified, uncropped media
 ========================= */
@@ -481,4 +483,5 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .slide, .slide > img.cover, .phone, .pill, .pill > span { transition: none; }
   .work:hover .slide > img.cover, .work:hover .phone { transform: none; }
+  .menu-toggle[aria-expanded="true"]::before { transform: none; }
 }
