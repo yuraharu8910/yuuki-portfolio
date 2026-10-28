@@ -269,9 +269,21 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .flow span { display: block; font-size: 13px; }
 .flow li:not(:last-child)::after { content: '→'; position: absolute; right: -21px; top: 10px; color: var(--muted); }
 .flow li:last-child strong { color: var(--red); }
+/* SERVICE：矢印はそのまま、工程の文字だけスクロールに合わせて濃くする */
+.flow li > strong, .flow li > span { opacity: calc(.15 + .85 * var(--flow-level, 1)); transition: opacity .3s linear; }   /* 最初はかなり薄く（15%）して、濃くなる変化をはっきり見せる */
 .grow-message { text-align: center; padding-top: 28px; }
 .grow-message > p { max-width: 42em; margin-inline: auto; }
 .grow-message h3 { font-family: var(--font-display); letter-spacing: .035em; } /* ABOUTの見出しと同じ明朝体に */
+/* SERVICE：カードにマウスを乗せたとき・中のリンクにフォーカスしたときに浮き上がる */
+.services article { box-shadow: 0 8px 24px rgba(32, 63, 49, .08); transition: transform .35s ease, box-shadow .35s ease; }
+/* SERVICE：画面に入ったカードだけ、濃い影とともにせり上がって着地する */
+.services article.card-rise { transform: translateY(48px); box-shadow: 0 28px 56px rgba(32, 63, 49, .18); transition: transform .9s cubic-bezier(.22, 1, .36, 1), box-shadow .9s ease; transition-delay: var(--rise-delay, 0s); }
+.services article.card-rise.is-risen { transform: none; box-shadow: 0 8px 24px rgba(32, 63, 49, .08); }
+/* ホバーはマウスなど「乗せられる」端末だけ */
+@media (hover: hover) {
+  .services article:hover { transform: translateY(-8px); box-shadow: 0 18px 36px rgba(32, 63, 49, .14); }
+}
+.services article:has(:focus-visible) { transform: translateY(-8px); box-shadow: 0 18px 36px rgba(32, 63, 49, .14); }
 /* =========================
    ABOUT — locked copy / existing avatar
 ========================= */
@@ -523,5 +535,6 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .slide, .slide > img.cover, .phone, .pill, .pill > span { transition: none; }
   .work:hover .slide > img.cover, .work:hover .phone { transform: none; }
+  .services article:hover, .services article:has(:focus-visible) { transform: none; }
   .menu-toggle[aria-expanded="true"]::before { transform: none; }
 }

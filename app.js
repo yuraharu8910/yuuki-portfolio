@@ -339,6 +339,81 @@ if (inviewVideos.length) {
 }
 
 /* =========================
+   SERVICE — カードが影つきでせり上がる
+   画面に入ったカードを1回だけ動かし、着地したら普段のホバー・フォーカスの動きに戻す。
+========================= */
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  const serviceRiseCards = document.querySelectorAll('.services article');
+  const serviceRiseObserver = new IntersectionObserver(entries => {
+    entries.filter(entry => entry.isIntersecting).forEach((entry, index) => {
+      const card = entry.target;
+      const delay = index * 0.15;   // 同じ回に見えたカードを少しずつずらす
+      let cleaned = false;
+      let cleanupTimer;
+      const cleanup = () => {
+        if (cleaned) return;
+        cleaned = true;
+        clearTimeout(cleanupTimer);
+        card.removeEventListener('transitionend', onTransitionEnd);
+        card.classList.remove('card-rise', 'is-risen');
+        card.style.removeProperty('--rise-delay');
+      };
+      const onTransitionEnd = event => {
+        if (event.target === card && event.propertyName === 'transform') cleanup();
+      };
+      card.style.setProperty('--rise-delay', `${delay}s`);
+      card.addEventListener('transitionend', onTransitionEnd);
+      card.classList.add('is-risen');
+      serviceRiseObserver.unobserve(card);
+      cleanupTimer = setTimeout(cleanup, 1500 + delay * 1000);   // 終了イベントが来ない場合にも戻す
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  serviceRiseCards.forEach(card => {
+    card.classList.add('card-rise');
+    serviceRiseObserver.observe(card);
+  });
+}
+
+/* =========================
+   SERVICE — 制作の流れ：スクロールに合わせて順番に濃くなる
+========================= */
+{
+  const list = document.querySelector('.flow');
+  const steps = list ? Array.from(list.querySelectorAll('li')) : [];
+  if (list && steps.length) {
+    let framePending = false;
+    const clamp = value => Math.max(0, Math.min(1, value));
+
+    function updateFlow() {
+      framePending = false;
+      // 「動きを減らす」設定のときは、CSSの既定値ですべて濃くする
+      if (reducedMotion.matches) {
+        steps.forEach(step => step.style.removeProperty('--flow-level'));
+        return;
+      }
+      const rect = list.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // 上端が画面の高さ90%の位置に来たら p=0、下端が35%の位置まで来たら p=1（長い距離をかけてゆっくり進める）
+      const p = clamp((vh * 0.9 - rect.top) / (vh * 0.9 - vh * 0.35 + rect.height));
+      steps.forEach((step, index) => {
+        const level = clamp(p * (steps.length + 1) - index);
+        step.style.setProperty('--flow-level', level.toFixed(3));
+      });
+    }
+    // スクロールのたびに計算せず、画面の描き換えのタイミングに合わせて1回だけ実行する
+    function scheduleFlow() {
+      if (reducedMotion.matches || framePending) return;
+      framePending = true;
+      window.requestAnimationFrame(updateFlow);
+    }
+    window.addEventListener('scroll', scheduleFlow, { passive: true });
+    window.addEventListener('resize', scheduleFlow, { passive: true });
+    reducedMotion.addEventListener('change', updateFlow);
+    updateFlow();
+  }
+}
+
+/* =========================
    CONTACT — フォーム送信（Formspree）
 ========================= */
 const form = document.getElementById('contact-form');
