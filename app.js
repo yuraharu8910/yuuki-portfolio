@@ -305,6 +305,40 @@ if (growthSection && treeStack) {
 }
 
 /* =========================
+   INLINE VIDEOS — 動画制作カード・事例ページの動画
+   data-inview が付いた <video> を、画面に50%以上入っている間だけ再生し、外れたら一時停止する。
+   （動画側の属性は muted loop playsinline preload="none"。ミュートなので自動再生できる）
+========================= */
+const inviewVideos = Array.from(document.querySelectorAll('video[data-inview]'));
+if (inviewVideos.length) {
+  const visibleVideos = new Set();   // いま画面に50%以上入っている動画
+  // 「動きを減らす」設定の人、または IntersectionObserver が使えない環境では、
+  // 自動再生せず再生ボタン（controls）を出して、自分で再生してもらう
+  const canAutoplay = () => 'IntersectionObserver' in window && !reducedMotion.matches;
+  const applyMode = () => inviewVideos.forEach(v => {
+    v.controls = !canAutoplay();
+    if (!canAutoplay()) v.pause();
+    else if (visibleVideos.has(v)) v.play().catch(() => {});   // 自動再生が拒否されても何もしない
+  });
+  applyMode();
+  if ('IntersectionObserver' in window) {
+    const inviewObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        // isIntersecting だけだと50%未満でも true になるので、見えている割合も見る
+        const visible = entry.isIntersecting && entry.intersectionRatio >= 0.5;
+        if (visible) visibleVideos.add(v); else visibleVideos.delete(v);
+        if (!canAutoplay()) return;
+        if (visible) v.play().catch(() => {});
+        else v.pause();
+      });
+    }, { threshold: 0.5 });
+    inviewVideos.forEach(v => inviewObserver.observe(v));
+  }
+  reducedMotion.addEventListener('change', applyMode);
+}
+
+/* =========================
    CONTACT — フォーム送信（Formspree）
 ========================= */
 const form = document.getElementById('contact-form');

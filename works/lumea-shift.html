@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap">
-    <link rel="stylesheet" href="../style.css?v=20261024">
-    <script src="../app.js?v=20261024" defer></script>
+    <link rel="stylesheet" href="../style.css?v=20261028">
+    <script src="../app.js?v=20261028" defer></script>
     <!-- ファビコン：対応しているブラウザは SVG を使い、使えないときは PNG・ICO を使う -->
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -123,6 +123,19 @@
             <h2>リール動画</h2>
             <video class="case-video" controls playsinline preload="none" poster="../assets/works/lumea-shift/card-reel.webp" width="540" height="960" aria-label="LUMEA SHIFTのリール">
               <source src="../assets/works/lumea-shift/reel.mp4" type="video/mp4">
+            </video>
+          </div>
+        </section>
+        <!-- 使用した動画：縦長（720×1280）。画面に50%以上入った間だけ再生する（app.js・data-inview）。
+             poster を用意したら、<video> に poster="../assets/works/lumea-shift/lumea-lp-poster.webp" を足す。 -->
+        <section class="case-section">
+          <p class="eyebrow">06</p>
+          <div>
+            <p class="eyebrow case-label">VIDEO</p>
+            <h2>使用した動画</h2>
+            <p>AI動画生成</p>
+            <video class="case-video" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="LUMEA SHIFT の使用動画（音声なし）">
+              <source src="../assets/works/lumea-shift/lumea-lp.mp4" type="video/mp4">
             </video>
           </div>
         </section>

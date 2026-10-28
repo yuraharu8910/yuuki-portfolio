@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap">
-    <link rel="stylesheet" href="../style.css?v=20261024">
-    <script src="../app.js?v=20261024" defer></script>
+    <link rel="stylesheet" href="../style.css?v=20261028">
+    <script src="../app.js?v=20261028" defer></script>
     <!-- ファビコン：対応しているブラウザは SVG を使い、使えないときは PNG・ICO を使う -->
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -147,6 +147,24 @@
             </video>
           </div>
         </section>
+        <!-- 使用した動画：drainage.mp4 がまだ用意できていないため、コメントアウトしている。
+             【差し込み手順】
+               1. 動画を assets/works/laviebelle/drainage.mp4 に置く（縦長 720×1280・音声なし・軽量化済みのもの）
+               2. この説明文を含む先頭の「開始コメント」と、末尾の「終了コメント」を消して、下の <section> を有効にする
+               3. 画像（poster）を用意したら、<video> に poster="../assets/works/laviebelle/drainage-poster.webp" を足す
+               ※ 自動再生・一時停止は app.js が行う（data-inview が目印）。コメントを外すだけで動く。
+        <section class="case-section">
+          <p class="eyebrow">06</p>
+          <div>
+            <p class="eyebrow case-label">VIDEO</p>
+            <h2>使用した動画</h2>
+            <p>AI動画生成</p>
+            <video class="case-video" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="La vie belle.mf の使用動画（音声なし）">
+              <source src="../assets/works/laviebelle/drainage.mp4" type="video/mp4">
+            </video>
+          </div>
+        </section>
+        -->
       </div>
       <div class="case-bottom">
         <a class="cta" href="https://laviebelle-mf.com/01-lp/">Visit Website ↗<span class="sr-only">（外部サイトへ移動します）</span>

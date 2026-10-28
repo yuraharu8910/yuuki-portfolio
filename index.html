@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap">
-    <link rel="stylesheet" href="style.css?v=20261024">
-    <script src="app.js?v=20261024" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261028">
+    <script src="app.js?v=20261028" defer></script>
     <!-- ファビコン：対応しているブラウザは SVG を使い、使えないときは PNG・ICO を使う -->
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -101,6 +101,15 @@
           <!-- 凡例：作品カードの種別バッジ（実案件 / 依頼制作 / 自主制作）の意味 -->
           <p class="muted">実案件・依頼制作・自主制作</p>
         </div>
+        <!-- カテゴリ移動ボタン：ページ内リンク。
+             タブ切り替えではなく、下の「Webサイト制作」「動画制作」の2ブロックを縦に並べている。
+             リンク先は各見出しの id（#works-web / #works-video）。 -->
+        <nav class="works-jump" aria-label="作品カテゴリ">
+          <a class="pill" href="#works-web">Webサイト制作 <span aria-hidden="true">↓</span></a>
+          <a class="pill" href="#works-video">動画制作 <span aria-hidden="true">↓</span></a>
+        </nav>
+        <!-- ========== Webサイト制作 ========== -->
+        <h3 class="works-block__title" id="works-web">Webサイト制作</h3>
         <!-- 作品カード：画像は data-rotate の中の .slide を app.js が切り替える。
              作品ごとに PC（静止画）/ Smartphone（静止画）/ Reels（動画）を、ある分だけ並べる。
              素材の置き場所：assets/works/作品フォルダ/card-pc.webp・card-sp.webp・card-reel.mp4（表紙 card-reel.webp） -->
@@ -188,26 +197,76 @@
               <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
             </a>
           </article>
-          <article class="work">
-            <div class="visual" data-rotate>
-              <a class="visual-link" href="works/yuge.html" aria-label="YUGE のケーススタディを見る" tabindex="-1">
-                <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/yuge/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
-                <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/yuge/card-sp.webp" alt="" width="480" height="1039" loading="lazy" decoding="async"></div></figure>
-              </a>
-            </div>
-            <a class="work-content" href="works/yuge.html">
-              <p class="eyebrow">05 / PROJECT</p>
-              <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
-              <p class="work-type">自主制作</p>
-              <h3>YUGE</h3>
-              <p class="meta">Landing Page</p>
-              <!-- 担当範囲：詳細ページの ROLE から抜き出したもの（新しく作らない） -->
-              <p class="work-role">担当：企画・ペルソナ設計・ワイヤーフレーム・UIデザイン・コーディング</p>
-              <p class="desc">サウナの空気感をビジュアルと言葉で伝える、世界観を大切に設計したランディングページ。</p>
-              <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
-            </a>
-          </article>
         </div>
+        <!-- ========== 動画制作 ==========
+             一覧のカードで直接再生する（詳細ページには移動しない）。
+             動画は muted loop playsinline preload="none"。data-inview が付いた動画を、
+             app.js が「画面に50%以上入った間だけ再生・外れたら一時停止」する。
+             縦長カードはそのまま（9:16）、横長カードは work-card--landscape を付ける（2列分・16:9）。
+
+             【posterの追加方法】今は poster 画像がないので、再生が始まるまでカードは黒いまま。
+             画像を用意したら、<video> に poster 属性を足すだけでよい。
+               例）<video src="assets/works/laviebelle/aroma.mp4"
+                          poster="assets/works/laviebelle/aroma-poster.webp" ...>
+             置き場所は動画と同じ assets/works/作品フォルダ/。縦長は 720×1280、横長は 1280×720 くらいが目安。 -->
+        <h3 class="works-block__title" id="works-video">動画制作</h3>
+        <ul class="video-grid">
+          <!-- ① La vie belle.mf（縦長） -->
+          <li class="work-card">
+            <div class="work-card__media">
+              <video src="assets/works/laviebelle/aroma.mp4" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="La vie belle.mf のInstagramリール（音声なし）"></video>
+            </div>
+            <h4 class="work-card__title">La vie belle.mf</h4>
+            <p class="work-card__type">クライアントワーク / Instagramリール</p>
+            <ul class="work-tags" aria-label="担当範囲">
+              <li>実写撮影</li>
+              <li>動画編集</li>
+            </ul>
+          </li>
+          <!-- ② 素 -SU-（横長：2列分） -->
+          <li class="work-card work-card--landscape">
+            <div class="work-card__media">
+              <video src="assets/works/su/hero.mp4" muted loop playsinline preload="none" data-inview width="1920" height="1080" aria-label="素 -SU- のLP内動画（音声なし）"></video>
+            </div>
+            <h4 class="work-card__title">素 -SU-</h4>
+            <p class="work-card__type">依頼制作 / LP内動画</p>
+            <ul class="work-tags" aria-label="担当範囲">
+              <li>アバター生成</li>
+              <li>AI動画生成</li>
+              <li>動画編集</li>
+            </ul>
+          </li>
+          <!-- ③ LUMEA SHIFT（縦長） -->
+          <li class="work-card">
+            <div class="work-card__media">
+              <video src="assets/works/lumea-shift/lumea-fv.mp4" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="LUMEA SHIFT のInstagramリール（音声なし）"></video>
+            </div>
+            <h4 class="work-card__title">LUMEA SHIFT</h4>
+            <p class="work-card__type">自主制作 / Instagramリール</p>
+            <ul class="work-tags" aria-label="担当範囲">
+              <li>アバター生成</li>
+              <li>絵コンテ</li>
+              <li>AI動画生成</li>
+              <li>AI音声生成</li>
+              <li>動画編集</li>
+            </ul>
+          </li>
+          <!-- ④ とおまち夏花火ナイト（縦長） -->
+          <li class="work-card">
+            <div class="work-card__media">
+              <video src="assets/works/tomachi/fv-tooma.mp4" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="とおまち夏花火ナイト のInstagramリール（音声なし）"></video>
+            </div>
+            <h4 class="work-card__title">とおまち夏花火ナイト</h4>
+            <p class="work-card__type">自主制作（架空） / Instagramリール</p>
+            <ul class="work-tags" aria-label="担当範囲">
+              <li>アバター生成</li>
+              <li>絵コンテ</li>
+              <li>AI動画生成</li>
+              <li>AI音声生成</li>
+              <li>動画編集</li>
+            </ul>
+          </li>
+        </ul>
       </section>
       <!-- ========================= SERVICE ========================= -->
       <section id="service" class="service section">

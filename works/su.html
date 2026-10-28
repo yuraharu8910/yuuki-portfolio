@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap">
-    <link rel="stylesheet" href="../style.css?v=20261024">
-    <script src="../app.js?v=20261024" defer></script>
+    <link rel="stylesheet" href="../style.css?v=20261028">
+    <script src="../app.js?v=20261028" defer></script>
     <!-- ファビコン：対応しているブラウザは SVG を使い、使えないときは PNG・ICO を使う -->
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -128,6 +128,20 @@
           </div>
         </section>
         -->
+        <!-- 使用した動画：横長（1280×720）。画面に50%以上入った間だけ再生する（app.js・data-inview）。
+             ※ 上のコメントアウトしたリール枠（05）を復活させるときは、この枠の番号を 06 に変える。
+             poster を用意したら、<video> に poster="../assets/works/su/science-poster.webp" を足す。 -->
+        <section class="case-section">
+          <p class="eyebrow">05</p>
+          <div>
+            <p class="eyebrow case-label">VIDEO</p>
+            <h2>使用した動画</h2>
+            <p>AI動画生成</p>
+            <video class="case-video case-video--landscape" muted loop playsinline preload="none" data-inview width="1280" height="720" aria-label="素 -SU- の使用動画（音声なし）">
+              <source src="../assets/works/su/science.mp4" type="video/mp4">
+            </video>
+          </div>
+        </section>
       </div>
       <div class="case-bottom">
         <a class="cta" href="https://yuraharu8910.github.io/su-lp/">Visit Website ↗<span class="sr-only">（外部サイトへ移動します）</span>

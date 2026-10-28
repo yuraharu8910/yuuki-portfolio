@@ -206,6 +206,43 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
   .work-content:hover .pill { background: var(--ink); color: var(--paper); }
   .work-content:hover .pill > span { transform: translateX(3px); }
 }
+/* ---------- SELECTED WORKS：2カテゴリ（Webサイト制作 / 動画制作）---------- */
+/* カテゴリ移動ボタン：「View Case Study」と同じ丸ボタンを横に並べる */
+.works-jump { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 56px; }
+.works-jump .pill > span { transition: transform .3s; }
+@media (hover: hover) {
+  .works-jump .pill:hover { background: var(--ink); color: var(--paper); }
+  .works-jump .pill:hover > span { transform: translateY(3px); }
+}
+.works-jump .pill:active { transform: scale(.97); }
+/* ブロック見出し：細い罫線で区切る。ジャンプしたとき、ヘッダー分の余白をあけて見出しが隠れないようにする */
+.works-block__title { margin: 0 0 32px; padding-bottom: 14px; border-bottom: 1px solid var(--line); scroll-margin-top: calc(var(--header-height) + 16px); }
+.work-grid + .works-block__title { margin-top: clamp(72px, 9vw, 112px); }
+/* Webサイト制作：スマホ1列 → 768px以上で3列（先頭の大きいカードは全幅のまま、下に3枚が並ぶ） */
+@media (min-width: 768px) {
+  .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .work-grid .work:not(.featured) h3 { font-size: clamp(20px, 2.2vw, 26px); } /* 3列は幅がせまいので文字を少し小さく */
+}
+/* 動画制作：スマホ2列 → 768px以上で4列。カードの高さが違うので上ぞろえ（align-items: start） */
+.video-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; align-items: start; }
+@media (max-width: 767px) {
+  /* 横長カード（2列分）のせいで空く穴を後ろのカードで埋める。スマホだけ並び順が少し入れ替わる */
+  .video-grid { grid-auto-flow: dense; }
+}
+@media (min-width: 768px) {
+  .video-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; }
+}
+.work-card { min-width: 0; }
+.work-card--landscape { grid-column: span 2; }
+/* 動画の箱：縦長 9:16 / 横長 16:9。読み込み前は黒（poster が入るまでの下地） */
+.work-card__media { aspect-ratio: 9 / 16; overflow: hidden; border-radius: 6px; background: #000; }
+.work-card--landscape .work-card__media { aspect-ratio: 16 / 9; }
+.work-card__media video { width: 100%; height: 100%; object-fit: cover; }
+.work-card__title { margin: 14px 0 4px; font: 500 16px/1.5 var(--font-body); letter-spacing: .02em; }
+.work-card__type { margin: 0 0 10px; font-size: 12px; line-height: 1.6; color: var(--muted); }
+/* 担当範囲：小さな角丸タグを横に並べ、入りきらなければ折り返す */
+.work-tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.work-tags li { padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; line-height: 1.7; color: var(--ink); }
 /* =========================
    SERVICE
 ========================= */
@@ -355,6 +392,9 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
 .case-screens figure { margin: 0; min-width: 0; }
 .case-screens img { width: 100%; height: auto; border: 1px solid var(--line); }
 .case-video { width: min(100%, 360px); height: auto; aspect-ratio: 9 / 16; background: var(--ink); margin-bottom: 18px; }
+/* 「使用した動画」（自動再生・ボタンなし）：枠にぴったり収める。横長の動画は幅を広げて 16:9 にする */
+.case-video[data-inview] { object-fit: cover; background: #000; }
+.case-video--landscape { width: min(100%, 640px); aspect-ratio: 16 / 9; }
 .case-bottom { display: flex; gap: 32px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 .case-bottom small { display: block; font-size: 12px; letter-spacing: .12em; }
 /* 詳細ページ末尾：クラウドソーシング経由の方への注記（1行まるごと使って、ボタンやリンクの下に置く） */
