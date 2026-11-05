@@ -78,6 +78,26 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .hero { height: calc(100svh - var(--header-height)); min-height: 570px; position: relative; isolation: isolate; background: var(--paper); }
 .hero-media { position: absolute; inset: 0; }
 .hero video { width: 100%; height: 100%; object-fit: contain; }
+/* PC：FV動画の四辺をページの色になじませる
+   動画の背景（ほぼ真っ白）とページの色（--paper）がわずかに違うため、
+   画面が動画より横長（または縦長）だと、動画の端が縦や横の線になって見えていた。
+   ① 動画の箱を、映像そのものと同じ大きさ（16:9）にして中央に置く
+      幅 = 「画面幅」と「FVの高さ × 16/9」の小さいほう（FVの高さは最低570px）
+   ② 箱の四辺を mask でぼかし、ページの色へ少しずつ消えていくようにする
+   スマホは下の MOBILE で別の指定をしているので、PC（761px以上）だけに効かせる */
+@media (min-width: 761px) {
+  .hero-media { display: flex; align-items: center; justify-content: center; }
+  .hero video {
+    width: min(100%, calc(max(100svh - var(--header-height), 570px) * 16 / 9));
+    height: auto;
+    aspect-ratio: 16 / 9;
+    /* 横方向と縦方向のグラデーションを重ね、両方が濃いところだけ表示する（intersect） */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+    -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+            mask-composite: intersect;
+  }
+}
 .hero-copy { position: absolute; left: var(--gutter); top: 50%; transform: translateY(-50%); width: 40%; z-index: 1; }
 .hero-copy h1 { font-size: clamp(32px, 3.65vw, 62px); line-height: 1.5; letter-spacing: .025em; margin-bottom: 24px; white-space: normal; }
 .hero-description { font-size: clamp(13px, 1.1vw, 16px); line-height: 1.95; margin-bottom: 22px; }
