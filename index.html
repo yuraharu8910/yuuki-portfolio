@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap">
-    <link rel="stylesheet" href="style.css?v=20261029e">
-    <script src="app.js?v=20261029e" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261105">
+    <script src="app.js?v=20261105" defer></script>
     <!-- ファビコン：対応しているブラウザは SVG を使い、使えないときは PNG・ICO を使う -->
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -135,6 +135,29 @@
               <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
             </a>
           </article>
+          <!-- hada note（依頼制作）：La vie belle.mf と同じ美容サロン向けなので2番目に置く -->
+          <article class="work">
+            <div class="visual" data-rotate>
+              <a class="visual-link" href="works/hada-note.html" aria-label="hada note のケーススタディを見る" tabindex="-1">
+                <figure class="slide is-active" data-label="PC"><img class="cover" src="assets/works/hada-note/card-pc.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure>
+                <figure class="slide slide--phone" data-label="Smartphone"><div class="phone"><img src="assets/works/hada-note/card-sp.webp" alt="" width="480" height="1039" loading="lazy" decoding="async"></div></figure>
+                <!-- リール追加時：assets/works/hada-note/ に card-reel.mp4 / card-reel.webp を置いてコメントを外す
+                <figure class="slide slide--phone" data-label="Reels"><div class="phone"><video src="assets/works/hada-note/card-reel.mp4" poster="assets/works/hada-note/card-reel.webp" muted playsinline preload="none" width="540" height="960"></video></div></figure>
+                -->
+              </a>
+            </div>
+            <a class="work-content" href="works/hada-note.html">
+              <p class="eyebrow">02 / COMMISSIONED WORK</p>
+              <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
+              <p class="work-type">依頼制作</p>
+              <h3>hada note</h3>
+              <p class="meta">LP / Skin Check</p>
+              <!-- 担当範囲：詳細ページの ROLE から抜き出したもの（新しく作らない） -->
+              <p class="work-role">担当：商品企画・ペルソナ設計・LP構成・デザイン・コーディング・肌チェックの設計と実装・AI画像／動画生成</p>
+              <p class="desc">「売り込まれずに、肌の理由がわかる。」をコンセプトに、架空のフェイシャルサロンを企画し、LPと無料のAI肌カルテを制作しました。</p>
+              <span class="pill">View Case Study <span aria-hidden="true">→</span></span>
+            </a>
+          </article>
           <article class="work">
             <div class="visual" data-rotate>
               <a class="visual-link" href="works/su.html" aria-label="素 -SU- のケーススタディを見る" tabindex="-1">
@@ -146,7 +169,7 @@
               </a>
             </div>
             <a class="work-content" href="works/su.html">
-              <p class="eyebrow">02 / COMMISSIONED WORK</p>
+              <p class="eyebrow">03 / COMMISSIONED WORK</p>
               <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
               <p class="work-type">依頼制作</p>
               <h3>素 -SU-</h3>
@@ -166,7 +189,7 @@
               </a>
             </div>
             <a class="work-content" href="works/lumea-shift.html">
-              <p class="eyebrow">03 / PROJECT</p>
+              <p class="eyebrow">04 / PROJECT</p>
               <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
               <p class="work-type">自主制作</p>
               <h3>LUMEA SHIFT</h3>
@@ -186,7 +209,7 @@
               </a>
             </div>
             <a class="work-content" href="works/tomachi.html">
-              <p class="eyebrow">04 / PROJECT</p>
+              <p class="eyebrow">05 / PROJECT</p>
               <!-- 種別バッジ：実案件 / 依頼制作 / 自主制作 のどれか -->
               <p class="work-type">自主制作</p>
               <h3>とおまち夏花火ナイト</h3>
@@ -223,7 +246,19 @@
               <li>動画編集</li>
             </ul>
           </li>
-          <!-- ② 素 -SU-（横長：2列分） -->
+          <!-- ② hada note（縦長：LP用に生成した動画） -->
+          <li class="work-card">
+            <div class="work-card__media">
+              <video src="assets/works/hada-note/movie-treatment.mp4" poster="assets/works/hada-note/movie-treatment.webp" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="hada note のLP内動画（音声なし）"></video>
+            </div>
+            <h4 class="work-card__title">hada note</h4>
+            <p class="work-card__type">依頼制作 / LP内動画</p>
+            <ul class="work-tags" aria-label="担当範囲">
+              <li>AI画像生成</li>
+              <li>AI動画生成</li>
+            </ul>
+          </li>
+          <!-- ③ 素 -SU-（横長：2列分） -->
           <li class="work-card work-card--landscape">
             <div class="work-card__media">
               <video src="assets/works/su/hero.mp4" muted loop playsinline preload="none" data-inview width="1920" height="1080" aria-label="素 -SU- のLP内動画（音声なし）"></video>
@@ -236,7 +271,7 @@
               <li>動画編集</li>
             </ul>
           </li>
-          <!-- ③ LUMEA SHIFT（縦長） -->
+          <!-- ④ LUMEA SHIFT（縦長） -->
           <li class="work-card">
             <div class="work-card__media">
               <video src="assets/works/lumea-shift/lumea-fv.mp4" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="LUMEA SHIFT のInstagramリール（音声なし）"></video>
@@ -251,7 +286,7 @@
               <li>動画編集</li>
             </ul>
           </li>
-          <!-- ④ とおまち夏花火ナイト（縦長） -->
+          <!-- ⑤ とおまち夏花火ナイト（縦長） -->
           <li class="work-card">
             <div class="work-card__media">
               <video src="assets/works/tomachi/fv-tooma.mp4" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="とおまち夏花火ナイト のInstagramリール（音声なし）"></video>
