@@ -1,5 +1,5 @@
 /* =========================
-   H v2 — BRAND / FOUNDATION
+   BRAND / FOUNDATION
 ========================= */
 :root {
   --paper: #faf8f2;
@@ -59,12 +59,10 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .header { height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-inline: var(--gutter); border-bottom: 1px solid var(--line); position: relative; z-index: 10; background: var(--paper); }
 .brand { font: 36px/1 Georgia, serif; letter-spacing: -2px; min-height: 44px; display: flex; align-items: center; }
 .brand span { font: 12px/1.5 Arial, sans-serif; letter-spacing: .1em; margin-left: 18px; }
-/* ヘッダーロゴ：「yuuki」と「PORTFOLIO」を1行に並べ、文字の下端（ベースライン）をそろえる */
 .header .brand { display: block; flex-shrink: 0; line-height: 44px; white-space: nowrap; }
 .header .brand span { margin-left: 8px; font: 600 12px/1 Arial, sans-serif; letter-spacing: .14em; }
 .header nav { display: flex; gap: clamp(20px, 3vw, 40px); align-items: center; font-size: 14px; }
 .header nav a { display: inline-flex; align-items: center; min-height: 44px; }
-/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
 @media (hover: hover) {
   .header nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
 }
@@ -78,20 +76,12 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .hero { height: calc(100svh - var(--header-height)); min-height: 570px; position: relative; isolation: isolate; background: var(--paper); }
 .hero-media { position: absolute; inset: 0; }
 .hero video { width: 100%; height: 100%; object-fit: contain; }
-/* PC：FV動画の四辺をページの色になじませる
-   動画の背景（ほぼ真っ白）とページの色（--paper）がわずかに違うため、
-   画面が動画より横長（または縦長）だと、動画の端が縦や横の線になって見えていた。
-   ① 動画の箱を、映像そのものと同じ大きさ（16:9）にして中央に置く
-      幅 = 「画面幅」と「FVの高さ × 16/9」の小さいほう（FVの高さは最低570px）
-   ② 箱の四辺を mask でぼかし、ページの色へ少しずつ消えていくようにする
-   スマホは下の MOBILE で別の指定をしているので、PC（761px以上）だけに効かせる */
 @media (min-width: 761px) {
   .hero-media { display: flex; align-items: center; justify-content: center; }
   .hero video {
     width: min(100%, calc(max(100svh - var(--header-height), 570px) * 16 / 9));
     height: auto;
     aspect-ratio: 16 / 9;
-    /* 横方向と縦方向のグラデーションを重ね、両方が濃いところだけ表示する（intersect） */
     -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
     -webkit-mask-composite: source-in;
             mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
@@ -102,17 +92,14 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .hero-copy h1 { font-size: clamp(32px, 3.65vw, 62px); line-height: 1.5; letter-spacing: .025em; margin-bottom: 24px; white-space: normal; }
 .hero-description { font-size: clamp(13px, 1.1vw, 16px); line-height: 1.95; margin-bottom: 22px; }
 .hero-description span { display: block; }
-/* FV：美容業界での経験。説明文より小さく・薄くして、補足として読ませる */
 .hero-description .hero-proof { margin-top: 12px; font-size: 13px; line-height: 1.8; color: var(--muted); }
 .hero-actions { display: flex; align-items: center; gap: 14px; }
-/* 「制作実績を見る」「対応範囲・制作条件を見る」を丸いボタンに（スマホ・PC共通の見た目） */
 .hero-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-width: 176px; min-height: 52px; padding: 0 28px; border: 1px solid var(--ink); border-radius: 999px; font-size: 15px; letter-spacing: .04em; text-decoration: none; white-space: nowrap; transition: background .3s, color .3s, opacity .3s; }
-.hero-actions .text-link { background: var(--ink); color: var(--paper); }      /* 制作実績を見る：塗りつぶし（メイン） */
-.hero-actions .quiet-link { background: var(--paper); color: var(--ink); }     /* 対応範囲・制作条件を見る：線だけ（サブ） */
-/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
+.hero-actions .text-link { background: var(--ink); color: var(--paper); }
+.hero-actions .quiet-link { background: var(--paper); color: var(--ink); }
 @media (hover: hover) {
-  .hero-actions .text-link:hover { opacity: .85; }                              /* マウスを乗せたら少し明るく */
-  .hero-actions .quiet-link:hover { background: var(--ink); color: var(--paper); } /* マウスを乗せたら塗りつぶし */
+  .hero-actions .text-link:hover { opacity: .85; }
+  .hero-actions .quiet-link:hover { background: var(--ink); color: var(--paper); }
 }
 .movie-caption { position: absolute; inset: auto var(--gutter) 14px; display: flex; justify-content: space-between; align-items: center; gap: 15px; z-index: 2; }
 .scroll-cue { display: flex; min-height: 44px; align-items: center; font: 12px/1.6 Arial, sans-serif; letter-spacing: .08em; }
@@ -126,21 +113,18 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .section-head h2 { margin-bottom: 0; }
 .how { border-top: 1px solid var(--line); padding-block: 72px; }
 .growth-layout { display: grid; grid-template-columns: 38% minmax(0, 62%); gap: 0; align-items: start; }
-/* 左の絵：position: sticky でスクロール中も画面内に留まる */
 .growth-art { position: sticky; top: 14vh; padding: 0 45px 0 0; }
-/* 8枚を同じ位置に重ねる枠。縦横比は画像（900×720）と同じ 5:4 */
 .tree-stack { position: relative; aspect-ratio: 5 / 4; max-width: 100%; }
 .tree-frame {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
-  opacity: 0;                       /* 初期は透明。app.js が opacity を書き換える */
-  will-change: opacity, transform;  /* 透明度と大きさが変わることをブラウザに予告 */
+  opacity: 0;
+  will-change: opacity, transform;
   transform-origin: 50% 95.8%;      /* 拡大の中心＝木の根元。地面を動かさずに上へ伸びる */
 }
 .tree-frame:first-child { opacity: 1; } /* JSが動かなくても1枚目（種）は見える */
 .growth-steps { list-style: none; padding: 0; margin: 0; }
-/* 1ステップの高さ＝その絵に使えるスクロール量。大きいほどゆっくり育つ */
 .growth-step { min-height: clamp(280px, 46vh, 420px); padding: 16px 0 22px 28px; border-left: 1px solid var(--line); transition: border-color .4s; }
-.growth-step.is-active { border-left-color: var(--ink); } /* 今のステップは左の線を濃く */
+.growth-step.is-active { border-left-color: var(--ink); }
 .growth-step .eyebrow { margin-bottom: 5px; }
 .growth-step h3 { font-size: 22px; margin-bottom: 8px; }
 .growth-step p { margin-bottom: 8px; font-size: 14px; }
@@ -150,61 +134,48 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
    SELECTED WORKS
 ========================= */
 .works { border-top: 1px solid var(--line); }
-/* ---------- SELECTED WORKS：Loonen風の写真カード＋Bevel風のスマホ枠 ---------- */
+/* ---------- SELECTED WORKS：写真カード＋スマホ枠 ---------- */
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(48px, 6vw, 72px) clamp(24px, 3vw, 40px); }
 .work { min-width: 0; display: flex; flex-direction: column; gap: 22px; }
 .work.featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 52px); align-items: center; }
-/* 画像の箱：縦横比はLPのキャプチャ（1440×900）と同じ 16:10 */
 .visual { position: relative; }
 .visual-link { display: block; position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 6px; background: var(--soft); }
 .slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .9s ease; }
 .slide.is-active { opacity: 1; }
 .slide > img.cover { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
-/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
 @media (hover: hover) {
   .work:hover .slide > img.cover { transform: scale(1.03); }
 }
-/* Smartphone / Reels：淡い下地の上に、実機に近い比率のスマホ枠
-   container-type: size … この枠の「高さ」を cqh という単位で中身から使えるようにする。
-   スマホの高さ（--ph）を決めれば、横幅・フチの太さ・角の丸み・カメラの大きさがすべて比率で決まるので、
-   カードが大きくても小さくても潰れずに同じ形のまま拡大縮小する */
 .slide--phone { background: var(--soft); display: flex; justify-content: center; align-items: flex-start; container-type: size; }
 .phone {
-  --ph: calc(100cqh - 74px);                    /* スマホの高さ＝カードの高さ − 上のボタン分(56px) − 下の余白(18px) */
+  --ph: calc(100cqh - 74px);
   position: relative; flex: none;
-  height: var(--ph); width: calc(var(--ph) * 9 / 19.5);   /* iPhoneと同じ縦横比 9：19.5 */
-  margin-top: 56px;                              /* 上の切り替えボタンに重ならないように */
-  border: calc(var(--ph) * .018) solid #1c1f1d;  /* 画面のフチ（ベゼル） */
-  border-radius: calc(var(--ph) * .09);          /* 本体の角の丸み */
+  height: var(--ph); width: calc(var(--ph) * 9 / 19.5);
+  margin-top: 56px;
+  border: calc(var(--ph) * .018) solid #1c1f1d;
+  border-radius: calc(var(--ph) * .09);
   background: #1c1f1d;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 0 0 1px rgba(0, 0, 0, .25), 0 22px 44px rgba(32, 63, 49, .2);
   transition: transform .8s ease;
 }
-/* カメラ部分（ダイナミックアイランド） */
 .phone::before { content: ''; position: absolute; top: calc(var(--ph) * .016); left: 50%; z-index: 1; width: 30%; height: calc(var(--ph) * .032); border-radius: 999px; background: #0d0f0e; transform: translateX(-50%); }
-/* 右側の電源ボタン */
 .phone::after { content: ''; position: absolute; top: 24%; right: calc(var(--ph) * -.018 - 2px); width: 2px; height: 11%; border-radius: 0 2px 2px 0; background: #2a2f2c; }
-/* 画面：本体より少し小さい丸みで切り抜く */
 .phone img, .phone video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: calc(var(--ph) * .072); }
-/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
 @media (hover: hover) {
   .work:hover .phone { transform: translateY(-2%); }
 }
-/* 切り替えボタン（PC / Smartphone / Reels）。画像が2枚以上ある作品だけ app.js が作る */
 .slide-tabs { position: absolute; left: 12px; top: 12px; z-index: 2; display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(250, 248, 242, .9); backdrop-filter: blur(6px); }
 .slide-tabs button { position: relative; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font: 11px/1 Arial, sans-serif; letter-spacing: .08em; padding: 7px 11px; }
 /* 押せる範囲だけを上下に10pxずつ広げる（見た目は変えない）。高さ約25px → 約45pxになり、指で押しやすくなる。
    左右は隣のボタンと重ならないよう広げない */
 .slide-tabs button::after { content: ''; position: absolute; inset: -10px 0; }
 .slide-tabs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-/* 文字部分 */
 .work-content { display: flex; flex-direction: column; align-items: start; }
 .work-content .eyebrow { margin-bottom: 8px; }
 .case-tag { margin: -2px 0 10px; font: 11px/1.6 Arial, sans-serif; letter-spacing: .13em; color: var(--muted); }
 .work-content h3 { font-size: clamp(24px, 2.6vw, 34px); line-height: 1.4; margin-bottom: 6px; }
 .work-content .meta { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
 .work-content .desc { margin: 0 0 20px; font-size: 15px; max-width: 32em; }
-/* 作品カード：種別バッジ（実案件 / 依頼制作 / 自主制作） */
 .work-type {
   display: inline-block;
   margin: 0 0 8px;
@@ -214,20 +185,15 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
   border: 1px solid var(--ink);
   border-radius: 999px;
 }
-/* 実案件（先頭の大きいカード）だけ塗りつぶして目立たせる */
 .work.featured .work-type { background: var(--ink); color: var(--paper); }
-/* 作品カード：担当範囲（.meta のすぐ下に置く。.meta の下余白12pxを打ち消して6pxの間隔にする） */
 .work-role { margin: -6px 0 12px; font-size: 13px; color: var(--muted); }
-/* Loonen風の小さな丸ボタン */
 .pill { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; padding: 0 22px; border: 1px solid var(--ink); border-radius: 999px; font: 12px/1 Arial, sans-serif; letter-spacing: .1em; transition: background .3s, color .3s; }
 .pill > span { transition: transform .3s; }
-/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
 @media (hover: hover) {
   .work-content:hover .pill { background: var(--ink); color: var(--paper); }
   .work-content:hover .pill > span { transform: translateX(3px); }
 }
 /* ---------- SELECTED WORKS：2カテゴリ（Webサイト制作 / 動画制作）---------- */
-/* カテゴリ移動ボタン：「View Case Study」と同じ丸ボタンを横に並べる */
 .works-jump { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 56px; }
 .works-jump .pill > span { transition: transform .3s; }
 @media (hover: hover) {
@@ -238,12 +204,10 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 /* ブロック見出し：細い罫線で区切る。ジャンプしたとき、ヘッダー分の余白をあけて見出しが隠れないようにする */
 .works-block__title { margin: 0 0 32px; padding-bottom: 14px; border-bottom: 1px solid var(--line); scroll-margin-top: calc(var(--header-height) + 16px); }
 .work-grid + .works-block__title { margin-top: clamp(72px, 9vw, 112px); }
-/* Webサイト制作：スマホ1列 → 768px以上で3列（先頭の大きいカードは全幅のまま、下に3枚が並ぶ） */
 @media (min-width: 768px) {
   .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .work-grid .work:not(.featured) h3 { font-size: clamp(20px, 2.2vw, 26px); } /* 3列は幅がせまいので文字を少し小さく */
+  .work-grid .work:not(.featured) h3 { font-size: clamp(20px, 2.2vw, 26px); }
 }
-/* 動画制作：スマホ2列 → 768px以上で4列。カードの高さが違うので上ぞろえ（align-items: start） */
 .video-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; align-items: start; }
 @media (max-width: 767px) {
   /* 横長カード（2列分）のせいで空く穴を後ろのカードで埋める。スマホだけ並び順が少し入れ替わる */
@@ -254,13 +218,11 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 }
 .work-card { min-width: 0; }
 .work-card--landscape { grid-column: span 2; }
-/* 動画の箱：縦長 9:16 / 横長 16:9。読み込み前は黒（poster が入るまでの下地） */
 .work-card__media { aspect-ratio: 9 / 16; overflow: hidden; border-radius: 6px; background: #000; }
 .work-card--landscape .work-card__media { aspect-ratio: 16 / 9; }
 .work-card__media video { width: 100%; height: 100%; object-fit: cover; }
 .work-card__title { margin: 14px 0 4px; font: 500 16px/1.5 var(--font-body); letter-spacing: .02em; }
 .work-card__type { margin: 0 0 10px; font-size: 12px; line-height: 1.6; color: var(--muted); }
-/* 担当範囲：小さな角丸タグを横に並べ、入りきらなければ折り返す */
 .work-tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .work-tags li { padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; line-height: 1.7; color: var(--ink); }
 /* =========================
@@ -268,17 +230,14 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 ========================= */
 .service { background: var(--soft); }
 .services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 60px; margin-top: 52px; }
-/* 01 WEB・LP / 02 REELS・VIDEO：薄いグリーンの上にオフホワイトのカードとして置く */
 .services article { background: var(--paper); border-radius: 6px; padding: clamp(26px, 3.4vw, 44px) clamp(22px, 3vw, 40px); }
 .services h3 { font-size: 26px; }
 .service-lead { font-size: 20px; line-height: 1.8; }
 .service-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; border-top: 1px solid var(--line); padding: 20px 0 0; font: 12px/1.8 Arial, sans-serif; }
 .service .step-tags, .service figcaption { color: var(--ink); }
-/* 「〇〇実績を見る →」：WORKSへ案内するリンク。左右で同じ位置にそろえる */
 .services article { display: flex; flex-direction: column; }
-.service-tags { margin-bottom: 28px; }                                        /* タグとリンクの間隔 */
-.service-link { align-self: flex-start; margin-top: auto; min-width: 200px; }  /* margin-top: auto … 下端にそろえる */
-/* SERVICE：対応範囲・制作条件（中の一覧は .profile の見た目を流用し、外側の余白だけここで足す） */
+.service-tags { margin-bottom: 28px; }
+.service-link { align-self: flex-start; margin-top: auto; min-width: 200px; }
 .conditions { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
 .conditions h3 { margin-bottom: 16px; }
 /* .profile がもともと持つ上の線と余白は外す（.conditions の線と重なって、線が2本続いてしまうため） */
@@ -289,17 +248,13 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .flow span { display: block; font-size: 13px; }
 .flow li:not(:last-child)::after { content: '→'; position: absolute; right: -21px; top: 10px; color: var(--muted); }
 .flow li:last-child strong { color: var(--red); }
-/* SERVICE：矢印はそのまま、工程の文字だけスクロールに合わせて濃くする */
-.flow li > strong, .flow li > span { opacity: calc(.15 + .85 * var(--flow-level, 1)); transition: opacity .3s linear; }   /* 最初はかなり薄く（15%）して、濃くなる変化をはっきり見せる */
+.flow li > strong, .flow li > span { opacity: calc(.15 + .85 * var(--flow-level, 1)); transition: opacity .3s linear; }
 .grow-message { text-align: center; padding-top: 28px; }
 .grow-message > p { max-width: 42em; margin-inline: auto; }
-.grow-message h3 { font-family: var(--font-display); letter-spacing: .035em; } /* ABOUTの見出しと同じ明朝体に */
-/* SERVICE：カードにマウスを乗せたとき・中のリンクにフォーカスしたときに浮き上がる */
+.grow-message h3 { font-family: var(--font-display); letter-spacing: .035em; }
 .services article { box-shadow: 0 8px 24px rgba(32, 63, 49, .08); transition: transform .35s ease, box-shadow .35s ease; }
-/* SERVICE：画面に入ったカードだけ、濃い影とともにせり上がって着地する */
 .services article.card-rise { transform: translateY(48px); box-shadow: 0 28px 56px rgba(32, 63, 49, .18); transition: transform .9s cubic-bezier(.22, 1, .36, 1), box-shadow .9s ease; transition-delay: var(--rise-delay, 0s); }
 .services article.card-rise.is-risen { transform: none; box-shadow: 0 8px 24px rgba(32, 63, 49, .08); }
-/* ホバーはマウスなど「乗せられる」端末だけ */
 @media (hover: hover) {
   .services article:hover { transform: translateY(-8px); box-shadow: 0 18px 36px rgba(32, 63, 49, .14); }
 }
@@ -315,7 +270,6 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .about-copy { grid-column: 2; grid-row: 2; max-width: 38em; }
 .about-copy h3 { font-family: Georgia, serif; }
 .about-copy h3 span { display: block; letter-spacing: .1em; font-family: Arial, sans-serif; }
-/* 名前「yuuki」はヘッダーのロゴと同じ書体・字間（小文字・Georgia・-2px）にそろえる */
 .about-copy h3 .about-name { font: 40px/1 Georgia, serif; letter-spacing: -2px; margin-bottom: 10px; }
 .profile { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 16px; margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--line); font-size: 13px; }
 .profile dt { font: 12px/1.9 Arial, sans-serif; letter-spacing: .04em; }
@@ -327,7 +281,6 @@ h3 { font-size: clamp(21px, 2vw, 28px); font-weight: 500; line-height: 1.65; mar
 .contact-grid { display: grid; grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 60px; }
 .contact h2 { font-size: clamp(26px, 2.6vw, 37px); }
 .contact p { max-width: 36em; }
-/* お問い合わせフォーム */
 .contact form { display: grid; gap: 10px; }
 .contact label, .contact legend { font-size: 12px; letter-spacing: .04em; margin-top: 10px; }
 .contact input:not([type='radio']), .contact textarea { display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 48px; padding: 12px; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--ink); }
@@ -340,23 +293,18 @@ textarea { resize: vertical; }
 .project-option input:focus-visible { outline-color: var(--red); }
 .contact .cta { margin-top: 15px; background: var(--paper); color: var(--ink); border-color: var(--paper); cursor: pointer; transition: opacity .3s; }
 .contact .cta:disabled { opacity: .6; cursor: wait; }
-/* 送信ボタン：マウスを乗せたら少し薄くする（FVの「制作実績を見る」と同じ .85）。送信中（disabled）は .6 のまま */
 @media (hover: hover) {
   .contact .cta:hover:not(:disabled) { opacity: .85; }
 }
 #form-status { font-size: 13px; margin: 5px 0 0; min-height: 1.5em; }
 #contact-result { padding: 28px; border: 1px solid var(--line); border-radius: 6px; }
 #contact-result h3 { font-size: 21px; font-family: var(--font-display); }
-/* 画面には見せないが、機械（Formspree）には送る入力欄 */
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 /* 迷惑メール対策の隠し入力欄：上の「.contact input」の width: 100% などが優先されて、
    見えないまま画面幅ぶん右へはみ出し、ページが横に動いていた。同じ強さのセレクタを後に書いて1pxに戻す */
 .contact input.visually-hidden { width: 1px; min-width: 0; height: 1px; min-height: 0; padding: 0; border: 0; }
-/* SNS（Instagramアイコン） */
 .contact-sns { display: flex; align-items: center; gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(250, 248, 242, .25); }
 .contact-sns p { margin: 0; font-size: 13px; opacity: .85; }
-/* クラウドソーシング経由の方への案内ブロック
-   CONTACT は背景が濃い緑（--ink）なので、明るい箱（--soft）の中の文字は --ink にして読めるようにする */
 .cs-notice {
   margin-bottom: 32px;
   padding: 20px 24px;
@@ -366,23 +314,17 @@ textarea { resize: vertical; }
 }
 .cs-notice p { margin: 0; }
 .cs-notice .cs-notice__title { font-weight: 600; margin-bottom: 6px; }
-/* 矢印を文字のすぐ後ろに置く（通常の .text-link は両端ぞろえで、スマホでは「見る」だけが2行目に落ちていた） */
 .cs-notice .text-link { margin-top: 10px; justify-content: flex-start; gap: 8px; }
-/* フォームの前置き：背景が濃い緑なので、--muted ではなく明るい文字を少し薄くして使う（SNS欄の文と同じ扱い） */
 .form-lead { font-size: 13px; opacity: .85; margin: 0 0 12px; }
-/* CONTACT：番号（05 / CONTACT）のすぐ下に続けて見せるため、上の余白を詰める */
 .contact-sub { margin-top: -14px; }
-/* 送信ボタン下の返信の目安：背景が濃い緑なので、.form-lead と同じく明るい文字を少し薄くする */
 /* keep-all … 日本語の途中で改行せず、「（週20時間程度）」のようなまとまりの前で折り返す */
 .form-note { font-size: 12px; opacity: .85; margin: 8px 0 0; word-break: keep-all; }
 .sns-list { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
 .sns-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; transition: opacity .3s; }
 .sns-link img { width: 28px; height: 28px; object-fit: contain; display: block; }
-/* ホバーはマウスなど「乗せられる」端末だけ（スマホでタップ後に効果が残らないように） */
 @media (hover: hover) {
   .sns-link:hover { opacity: .7; }
 }
-/* フォームの角丸：SERVICEのカード（6px）とそろえる */
 .contact input:not([type='radio']), .contact textarea, .contact .project-option, .contact .cta { border-radius: 6px; }
 /* =========================
    CASE STUDIES / FOOTER
@@ -401,38 +343,29 @@ footer .brand span { margin: 8px 0 0; }
 .case-section h2 { font: 500 clamp(20px, 2vw, 27px)/1.6 Arial, sans-serif; letter-spacing: .04em; }
 .case-section p { max-width: 42em; }
 .case-section .eyebrow { margin-top: 7px; }
-/* 詳細ページの見出しの上に置く英語ラベル（OVERVIEW など）。左の番号より控えめにして、日本語の見出しにすぐ続ける */
 .case-section .case-label { margin: 0 0 4px; color: var(--muted); }
-/* ケーススタディの一覧（目的・担当・ツール）と工夫ポイント */
 .case-meta { margin-top: 24px; }
 .case-points { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 18px; max-width: 42em; }
 .case-points li { padding-left: 18px; border-left: 2px solid var(--line); }
 .case-points strong { display: block; font-weight: 600; margin-bottom: 4px; }
-/* DESIGN POINT の小見出し（LP / チャットボット など）。2つ目以降は上に間隔をあけて区切る */
 .case-subhead { font-size: 16px; font-weight: 600; line-height: 1.6; margin: 0 0 4px; }
 .case-points + .case-subhead { margin-top: 36px; }
-/* 詳細ページの ROLE：分野ごとに1行ずつ並べ、分野名（strong）を太字にする */
 .role-line { display: block; }
 .role-line + .role-line { margin-top: 6px; }
 .role-line strong { font-weight: 600; }
 .case-figure { margin: 30px 0 0; }
 .case-figure img { max-height: 620px; width: 100%; object-fit: contain; background: var(--soft); }
 figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
-/* 画面キャプチャ：PC（横長 16:10）とスマホ（縦長）を、高さが揃う幅の比で横に並べる。
-   16/10 : 780/1688 ≒ 1.6 : 0.462 なので、この比にすると2枚の高さが同じになる */
 .case-screens { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.462fr); gap: 24px; align-items: start; margin-top: 8px; }
 .case-screens figure { margin: 0; min-width: 0; }
 .case-screens img { width: 100%; height: auto; border: 1px solid var(--line); }
 .case-video { width: min(100%, 360px); height: auto; aspect-ratio: 9 / 16; background: var(--ink); margin-bottom: 18px; }
-/* 事例ページ：縦長の動画を2本以上横に並べる（hada note の MOVIE）。幅が足りないときは折り返して縦に並ぶ */
 .case-videos { display: flex; flex-wrap: wrap; gap: 16px; }
 .case-videos .case-video { width: min(100%, 280px); margin-bottom: 0; }
-/* 「使用した動画」（自動再生・ボタンなし）：枠にぴったり収める。横長の動画は幅を広げて 16:9 にする */
 .case-video[data-inview] { object-fit: cover; background: #000; }
 .case-video--landscape { width: min(100%, 640px); aspect-ratio: 16 / 9; }
 .case-bottom { display: flex; gap: 32px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 .case-bottom small { display: block; font-size: 12px; letter-spacing: .12em; }
-/* 詳細ページ末尾：クラウドソーシング経由の方への注記（1行まるごと使って、ボタンやリンクの下に置く） */
 .cs-note { flex-basis: 100%; margin: 0; font-size: 12px; color: var(--muted); }
 /* =========================
    TABLET / SHORT DESKTOP
@@ -465,23 +398,15 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   /* No-JS navigation remains accessible without requiring a menu script. */
   .header:not(.nav-ready) { height: auto; min-height: 60px; flex-wrap: wrap; padding-block: 8px; }
   .header:not(.nav-ready) nav { flex-wrap: wrap; gap: 8px; }
-  /* スマホ：FVを「画面の高さ − ヘッダー」に収め、コピーの下の残りの高さを動画に使う */
   .hero { height: calc(100svh - var(--header-height)); min-height: 560px; display: flex; flex-direction: column; }
-  /* display: contents … 箱そのものを無くし、中身（タイトル・説明・ボタン）を .hero の並びに直接参加させる。
-     これで「タイトル → 動画 → ボタン → SCROLL」の順に並べ替えられる */
   .hero-copy { display: contents; }
-  .hero-copy .eyebrow { display: none; } /* スマホのFVでは非表示 */
+  .hero-copy .eyebrow { display: none; }
   .hero-copy h1 { order: 0; margin: clamp(24px, 4.5svh, 44px) var(--gutter) 16px; font-size: clamp(29px, 8.2vw, 48px); line-height: 1.5; letter-spacing: .02em; }
   .hero-description { order: 0; margin: 0 var(--gutter) 4px; font-size: 13px; line-height: 1.95; }
-  /* ボタン2つを横並び・同じ幅で、動画の下に配置 */
   .hero-actions { order: 2; flex: none; display: flex; gap: 12px; margin: 4px var(--gutter) 0; }
-  .hero-actions a { flex: 1 1 0; min-width: 0; min-height: 50px; gap: 10px; padding: 0 12px; font-size: 14px; }   /* 1 1 0 … 2つを同じ幅に */
-  /* サブボタンは文字が長くボタン幅に収まらないので、スマホでは2行にする。
-     keep-all … 日本語の途中では改行せず、HTMLの <wbr> の位置（「対応範囲・」の後）でだけ折り返す */
+  .hero-actions a { flex: 1 1 0; min-width: 0; min-height: 50px; gap: 10px; padding: 0 12px; font-size: 14px; }
   .hero-actions .quiet-link { white-space: normal; word-break: keep-all; line-height: 1.4; text-align: center; }
-  /* 動画エリア：コピーの下の残りの高さすべて */
   .hero-media { position: relative; inset: auto; width: 100%; flex: 1; min-height: 0; order: 1; z-index: -1; overflow: hidden; }
-  /* 動画エリアの下端に、ページの色へなじむグラデーションをかけて境目を消す */
   .hero-media::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 36px; background: linear-gradient(to bottom, rgba(250, 248, 242, 0), var(--paper)); pointer-events: none; }
   /* 動画（9:16）のうち、木と人物がいる範囲（上から約20〜77%）がエリアにぴったり入る大きさにする。
      横幅は画面より最大18%はみ出してOK（木の左右の端が少し切れる分、木を大きく見せる）。
@@ -496,13 +421,11 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
     -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
             mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
-  /* SCROLL TO GROW はボタンの下に中央寄せで小さく */
   .movie-caption { position: static; order: 3; flex: none; justify-content: center; margin: 2px var(--gutter) 4px; }
   .scroll-cue { min-height: 40px; font-size: 11px; }
   .section-head { display: block; margin-bottom: 32px; }
   .section-head .muted { margin-top: 22px; }
   .how { padding-block: 64px; }
-  /* 絵を画面上部に固定し、その下をステップが流れる */
   .growth-layout { display: block; }
   .growth-art { top: 0; z-index: 1; padding: 8px 0 6px; background: var(--paper); border-bottom: 1px solid var(--line); }
   .tree-stack { height: 34vh; aspect-ratio: auto; }
@@ -516,7 +439,7 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   .work-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
   .work.featured { display: flex; align-items: stretch; } /* 横幅いっぱいに（中央寄せのままだと幅0になる） */
   .work-content h3 { font-size: 28px; }
-  .visual-link { aspect-ratio: 4 / 3; } /* スマホではカードを少し縦長にして、スマホ枠を大きく見せる */
+  .visual-link { aspect-ratio: 4 / 3; }
   .services { grid-template-columns: minmax(0, 1fr); gap: 40px; margin-top: 36px; }
   .service h2 { font-size: clamp(23px, 6.1vw, 36px); }
   .service-lead { font-size: 18px; }
@@ -539,14 +462,11 @@ figcaption { font-size: 12px; color: var(--muted); padding-top: 12px; }
   .case-bottom { flex-direction: column; align-items: stretch; }
   .case-screens { grid-template-columns: minmax(0, 1fr); }
   .case-screens figure:last-child { width: min(62%, 260px); }
-  /* 見出し列は85pxを基本に、「BACKGROUND」のような長い見出しのときだけ文字幅まで広げる */
   .profile { grid-template-columns: minmax(85px, max-content) minmax(0, 1fr); gap: 12px; }
 }
 /* =========================
    押したときの反応（:active）
 ========================= */
-/* 押している間だけ少し縮めて、押せたことを伝える（マウス・タッチ共通）。
-   作品カードはカード全体がリンクなので、中の「View Case Study」だけを縮める */
 .cta:active, .hero-actions a:active, .text-link:active, .quiet-link:active,
 .nav-contact:active, .sns-link:active, .menu-toggle:active,
 .work-content:active .pill { transform: scale(.97); }
